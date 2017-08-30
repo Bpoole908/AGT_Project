@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Entity : MonoBehaviour {
+public class Player : MonoBehaviour {
 
-	[SerializeField] private bool isPlayer = false;
 	public float speed;
 	private Rigidbody rb;
 
