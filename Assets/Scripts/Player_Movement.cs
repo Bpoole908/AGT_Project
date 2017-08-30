@@ -16,7 +16,7 @@ public class Player_Movement : MonoBehaviour {
 		float moveHor = Input.GetAxis("Horizontal");
 		float moveVer = Input.GetAxis("Vertical");
 
-		Vector3 movement = new Vector3(moveHor, 0.0f, moveVer);
+		Vector3 movement = new Vector3(moveHor, moveVer, 0.0f);
 
 		rb.AddForce(movement * speed);
 	}
