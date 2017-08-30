@@ -2,7 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour {
+public class Player_Movement : MonoBehaviour {
+
 
 	public float speed;
 	private Rigidbody rb;
@@ -10,6 +11,7 @@ public class Player : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody>();
+
 	}
 
 	// Update is called once per frame

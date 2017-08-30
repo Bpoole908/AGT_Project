@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour {
-
+public class Entity : MonoBehaviour {
+	
+	public string test = "hi";
 	// Use this for initialization
 	void Start () {
 		
