@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Absorb_Script : MonoBehaviour {
 
-
+	private float deltaScale = 0.5f;
 	// Use this for initialization
 	void Start () {
 		
@@ -16,13 +16,16 @@ public class Absorb_Script : MonoBehaviour {
 		float thisSize = this.gameObject.GetComponent<Entity>().size;
 		float colSize = col.gameObject.GetComponent<Entity> ().size;
 
-		//print ("This size: " + thisSize);
-		//print ("Col size: " + colSize);
+
 
 		if (thisSize < colSize) {
 			Destroy (this.gameObject);
+			col.transform.localScale += new Vector3 (deltaScale, deltaScale, 0.0f);
 		} else if (thisSize > colSize) {
 			Destroy (col.gameObject);
+			this.transform.localScale += new Vector3 (deltaScale, deltaScale, 0.0f);
+		} else {
+			//what should we do if they're the same size?
 		}
 	}
 

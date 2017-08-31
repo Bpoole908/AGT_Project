@@ -9,7 +9,7 @@ public class Entity : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+		size = rend.bounds.size.x * rend.bounds.size.y;
 	}
 	
 	// Update is called once per frame
