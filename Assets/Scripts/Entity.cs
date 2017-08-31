@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Entity : MonoBehaviour {
-	
-	public string test = "hi";
+
+	public Renderer rend;
+	[HideInInspector] public float size;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -12,6 +14,8 @@ public class Entity : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+
+		size = rend.bounds.size;
+
 	}
 }
