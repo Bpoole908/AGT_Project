@@ -6,11 +6,11 @@ public class Player_Movement : MonoBehaviour {
 
 
 	public float speed;
-	private Rigidbody rb;
+	private Rigidbody2D rb;
 
 	// Use this for initialization
 	void Start () {
-		rb = GetComponent<Rigidbody>();
+		rb = GetComponent<Rigidbody2D>();
 
 	}
 
@@ -19,7 +19,7 @@ public class Player_Movement : MonoBehaviour {
 		float moveHor = Input.GetAxis("Horizontal");
 		float moveVer = Input.GetAxis("Vertical");
 
-		Vector3 movement = new Vector3(moveHor, moveVer, 0.0f);
+		Vector2 movement = new Vector3(moveHor, moveVer);
 
 		rb.AddForce(movement * speed);
 	}
