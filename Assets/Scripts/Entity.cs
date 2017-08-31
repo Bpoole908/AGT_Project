@@ -15,7 +15,7 @@ public class Entity : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		size = rend.bounds.size;
+		size = rend.bounds.size.x * rend.bounds.size.y;
 
 	}
 }

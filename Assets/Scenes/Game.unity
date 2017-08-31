@@ -284,6 +284,7 @@ GameObject:
   - component: {fileID: 581113594}
   - component: {fileID: 581113599}
   - component: {fileID: 581113598}
+  - component: {fileID: 581113600}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Untagged
@@ -302,7 +303,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a501f5f9765c574a9037627f5db5e45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  test: hi
+  rend: {fileID: 581113595}
+  size: 0
 --- !u!23 &581113595
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -390,6 +392,17 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &581113600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 581113593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6daa219481836624fa401c5d2dea86fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &742412003
 GameObject:
   m_ObjectHideFlags: 0
@@ -405,6 +418,7 @@ GameObject:
   - component: {fileID: 742412005}
   - component: {fileID: 742412004}
   - component: {fileID: 742412011}
+  - component: {fileID: 742412012}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -470,7 +484,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a501f5f9765c574a9037627f5db5e45, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  test: hi
+  rend: {fileID: 742412008}
+  size: 0
 --- !u!23 &742412008
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -535,6 +550,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+--- !u!114 &742412012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 742412003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6daa219481836624fa401c5d2dea86fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1446329178
 GameObject:
   m_ObjectHideFlags: 0

@@ -16,9 +16,14 @@ public class Absorb_Script : MonoBehaviour {
 		float thisSize = this.gameObject.GetComponent<Entity>().size;
 		float colSize = col.gameObject.GetComponent<Entity> ().size;
 
-		print ("This size: " + thisSize);
-		print ("Col size: " + colSize);
+		//print ("This size: " + thisSize);
+		//print ("Col size: " + colSize);
 
+		if (thisSize < colSize) {
+			Destroy (this.gameObject);
+		} else if (thisSize > colSize) {
+			Destroy (col.gameObject);
+		}
 	}
 
 
