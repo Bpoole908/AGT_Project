@@ -20,7 +20,7 @@ public class Absorb_Script : MonoBehaviour {
 
 		if (thisSize < colSize) {
 			Destroy (this.gameObject);
-			col.transform.localScale += new Vector3 (deltaScale, deltaScale, 0.0f);
+			col.transform.localScale += new Vector3 (deltaScale, deltaScale, 0.0f); //I get errors when I try to do this with Vector2. Any reason we shouldn't use 3 going forward?
 		} else if (thisSize > colSize) {
 			Destroy (col.gameObject);
 			this.transform.localScale += new Vector3 (deltaScale, deltaScale, 0.0f);
