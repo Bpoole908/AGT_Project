@@ -11,7 +11,7 @@ public class Absorb_Script : MonoBehaviour {
 	}
 
 	//not sure if this is the right method. need to chnage it if we use the 2d one
-	void OnCollisionEnter2D(Collision2D col){
+	void OnCollisionEnter(Collision col){
 
 		float thisSize = this.gameObject.GetComponent<Entity>().size;
 		float colSize = col.gameObject.GetComponent<Entity> ().size;
@@ -20,10 +20,10 @@ public class Absorb_Script : MonoBehaviour {
 
 		if (thisSize < colSize) {
 			Destroy (this.gameObject);
-			col.transform.localScale += new Vector3 (deltaScale, deltaScale, 0.0f); //I get errors when I try to do this with Vector2. Any reason we shouldn't use 3 going forward?
+			col.transform.localScale += new Vector3 (deltaScale, deltaScale, deltaScale); 
 		} else if (thisSize > colSize) {
 			Destroy (col.gameObject);
-			this.transform.localScale += new Vector3 (deltaScale, deltaScale, 0.0f);
+			this.transform.localScale += new Vector3 (deltaScale, deltaScale, deltaScale);
 		} else {
 			//what should we do if they're the same size?
 		}

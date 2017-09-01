@@ -13,7 +13,8 @@ public class Camera_Controller : MonoBehaviour {
 
 	// Update is called once per frame
 	void LateUpdate () {
-		if(player) //prevents errors if player is destroyed
+		if (player) { //prevents errors if player is destroyed
 			transform.position = player.transform.position + offset;
+		}
 	}
 }

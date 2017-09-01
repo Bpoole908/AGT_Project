@@ -6,11 +6,11 @@ public class Player_Movement : MonoBehaviour {
 
 
 	public float speed;
-	private Rigidbody2D rb;
+	private Rigidbody rb;
 
 	// Use this for initialization
 	void Start () {
-		rb = GetComponent<Rigidbody2D>();
+		rb = GetComponent<Rigidbody>();
 
 	}
 
