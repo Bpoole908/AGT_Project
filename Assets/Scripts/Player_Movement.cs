@@ -7,20 +7,22 @@ public class Player_Movement : MonoBehaviour {
 
 	public float speed;
 	private Rigidbody rb;
+	private Transform tr;
 
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody>();
-
+		tr = GetComponent<Transform>();
 	}
 
-	// Update is called once per frame
+
 	void FixedUpdate () {
 		float moveHor = Input.GetAxis("Horizontal");
 		float moveVer = Input.GetAxis("Vertical");
 
-		Vector2 movement = new Vector2(moveHor, moveVer);
+		Vector3 movement = new Vector3(moveHor, moveVer, 0.0f);
 
-		rb.AddForce(movement * speed);
+		//rb.AddForce(movement * speed); 
+		tr.Translate(movement * speed/400); 
 	}
 }

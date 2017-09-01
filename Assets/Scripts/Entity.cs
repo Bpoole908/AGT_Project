@@ -6,6 +6,7 @@ public class Entity : MonoBehaviour {
 
 	public Renderer rend;
 	[HideInInspector] public float size;
+	[HideInInspector] public float energy;
 
 	// Use this for initialization
 	void Start () {
