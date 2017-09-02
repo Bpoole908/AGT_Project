@@ -23,24 +23,10 @@ public class Absorb_Script : MonoBehaviour {
 		} else if (thisSize > colSize) {
 			Destroy (col.gameObject);
 			this.transform.localScale += new Vector3 (deltaScale, deltaScale, deltaScale);
-			incCamera();
 		} else {
 			//what should we do if they're the same size?
 		}
 	}
-
-	void incCamera() {
-		/*
-		Vector3 zInc = Camera.main.transform.position;
-		zInc.z -= 5.0f;
-		Camera.main.transform.Translate(zInc * 5);
-		//print (Camera.main.transform.position);
-*/
-	}
-
-
-
-
 	// Update is called once per frame
 	void Update () {
 
