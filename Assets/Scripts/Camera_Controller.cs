@@ -16,6 +16,6 @@ public class Camera_Controller : MonoBehaviour {
 
 		if (player) //prevents errors if player is destroyed
 			transform.position = player.transform.position + offset;
-		
+
 	}
 }
