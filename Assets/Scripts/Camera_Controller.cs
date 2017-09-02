@@ -4,18 +4,30 @@ using UnityEngine;
 
 public class Camera_Controller : MonoBehaviour {
 	public GameObject player;
-	private Vector3 offset;
+	private Vector3 offset, camAdjust;
+	private float oldSize;
 
 	// Use this for initialization
 	void Start () {
 		offset = transform.position - player.transform.position;
+		oldSize = player.GetComponent<Entity>().size;
+		camAdjust = new Vector3 (0.0f, 0.0f, 0.0f);
+	
 	}
 
 	// Update is called once per frame
 	void LateUpdate () {
+		
+		if (player) { //prevents errors if player is destroyed
 
-		if (player) //prevents errors if player is destroyed
-			transform.position = player.transform.position + offset;
+			if (oldSize < player.GetComponent<Entity> ().size) {
+				camAdjust += new Vector3 (0.0f, 0.0f, -5.0f);
+				oldSize = player.GetComponent<Entity> ().size;
+			}
+				
+			transform.position = player.transform.position + offset + camAdjust;
+		}
+
 
 	}
 }

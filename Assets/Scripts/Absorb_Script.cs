@@ -30,10 +30,12 @@ public class Absorb_Script : MonoBehaviour {
 	}
 
 	void incCamera() {
+		/*
 		Vector3 zInc = Camera.main.transform.position;
 		zInc.z -= 5.0f;
-		Camera.main.transform.position = zInc;
-
+		Camera.main.transform.Translate(zInc * 5);
+		//print (Camera.main.transform.position);
+*/
 	}
 
 
