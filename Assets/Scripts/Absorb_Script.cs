@@ -31,7 +31,7 @@ public class Absorb_Script : MonoBehaviour {
 
 	IEnumerator sizeInc(Transform source){
 		float deltaScale = 0.5f;
-		float rateOfChange = .01f;
+		float rateOfChange = .1f;
 		Vector3 target = source.localScale + new Vector3 (deltaScale, deltaScale, deltaScale);
 	
 		while (source.localScale.x < target.x) {
