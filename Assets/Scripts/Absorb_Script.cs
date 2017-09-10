@@ -16,10 +16,10 @@ public class Absorb_Script : MonoBehaviour {
 
 		if (thisSize < colSize) {
 			Destroy (this.gameObject);
-			StartCoroutine(this.sizeInc());
+			StartCoroutine(this.sizeInc(col.transform));
 		} else if (thisSize > colSize) {
 			Destroy (col.gameObject);
-			StartCoroutine(this.sizeInc());
+			StartCoroutine(this.sizeInc(this.transform));
 		} else {
 			//what should we do if they're the same size?
 		}
@@ -29,16 +29,16 @@ public class Absorb_Script : MonoBehaviour {
 
 	}
 
-	IEnumerator sizeInc(){
+	IEnumerator sizeInc(Transform source){
 		float deltaScale = 0.5f;
 		float rateOfChange = .01f;
-		Vector3 target = transform.localScale;
-		target += new Vector3 (deltaScale, deltaScale, deltaScale);
-
-		while (transform.localScale.x < target.x) {
-			transform.localScale = Vector3.Lerp (transform.localScale, target, rateOfChange);
+		Vector3 target = source.localScale + new Vector3 (deltaScale, deltaScale, deltaScale);
+	
+		while (source.localScale.x < target.x) {
+			source.localScale = Vector3.Lerp (source.localScale, target, rateOfChange);
 			yield return null;
 		}
 
 	}
+
 }

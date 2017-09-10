@@ -20,11 +20,5 @@ public class Entity : MonoBehaviour {
 
 	}
 
-	public void sizeInc(){
-		float deltaScale = 0.5f;
-		Vector3 target = transform.localScale;
-		target += new Vector3 (deltaScale, deltaScale, deltaScale);
-		transform.localScale = Vector3.Lerp (transform.localScale, target, .1f);
-		
-	}
+
 }
