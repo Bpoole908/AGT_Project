@@ -10,7 +10,7 @@ public class Camera_Controller : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		//offset = transform.position - player.transform.position;
+		offset = transform.position - player.transform.position;
 		//oldSize = player.GetComponent<Entity>().size;
 		//camAdjust = new Vector3 (0.0f, 0.0f, 0.0f);
 
@@ -20,6 +20,7 @@ public class Camera_Controller : MonoBehaviour {
 	void Update () {
 
 		thisCamera.orthographicSize = 4 + player.transform.localScale.x;
+		transform.position = player.transform.position + offset;
 
 		/*
 		if (player) { //prevents errors if player is destroyed
