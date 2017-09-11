@@ -38,7 +38,7 @@ public class Absorb_Script : MonoBehaviour
 		float deltaScale = 0.5f;
 		float rateOfChange = .1f;
 		Vector3 target = source.localScale + new Vector3 (deltaScale, deltaScale, deltaScale);
-	
+		this.gameObject.GetComponent<Light> ().range += deltaScale;
 		while (source.localScale.x < target.x) {
 			source.localScale = Vector3.Lerp (source.localScale, target, rateOfChange);
 
