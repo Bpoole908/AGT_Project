@@ -19,7 +19,7 @@ public class Absorb_Script : MonoBehaviour
 
 		if (thisSize < colSize) {
 			Destroy (this.gameObject);
-			StartCoroutine (this.sizeInc (col.transform));
+			StartCoroutine (col.gameObject.GetComponent<Absorb_Script> ().sizeInc (col.transform));
 		} else if (thisSize > colSize) {
 			Destroy (col.gameObject);
 			StartCoroutine (this.sizeInc (this.transform));
