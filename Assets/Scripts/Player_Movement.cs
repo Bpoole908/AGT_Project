@@ -22,7 +22,6 @@ public class Player_Movement : MonoBehaviour {
 
 		Vector3 movement = new Vector3(moveHor, moveVer, 0.0f);
 
-		//rb.AddForce(movement * speed); 
 		tr.Translate(movement * speed/400); 
 	}
 }

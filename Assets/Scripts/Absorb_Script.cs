@@ -17,11 +17,8 @@ public class Absorb_Script : MonoBehaviour
 		float thisSize = this.gameObject.GetComponent<Entity> ().size;
 		float colSize = col.gameObject.GetComponent<Entity> ().size;
 
-		if (thisSize < colSize) {
-			this.gameObject.SetActive (false);
-			StartCoroutine (col.gameObject.GetComponent<Absorb_Script> ().sizeInc (col.transform));
-		} else if (thisSize > colSize) {
-			Destroy (col.gameObject);
+		if (thisSize > colSize) {
+			col.gameObject.SetActive(false);
 			StartCoroutine (this.sizeInc (this.transform));
 		} else {
 			//what should we do if they're the same size?
@@ -41,7 +38,6 @@ public class Absorb_Script : MonoBehaviour
 		this.gameObject.GetComponent<Light> ().range += deltaScale;
 		while (source.localScale.x < target.x) {
 			source.localScale = Vector3.Lerp (source.localScale, target, rateOfChange);
-
 			yield return null;
 		}
 
