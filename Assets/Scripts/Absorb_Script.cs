@@ -9,8 +9,7 @@ public class Absorb_Script : MonoBehaviour
 	{
 		
 	}
-
-	//not sure if this is the right method. need to chnage it if we use the 2d one
+		
 	void OnCollisionEnter (Collision col)
 	{
 
@@ -20,6 +19,14 @@ public class Absorb_Script : MonoBehaviour
 		if (thisSize > colSize) {
 			col.gameObject.SetActive(false);
 			StartCoroutine (this.sizeInc (this.transform));
+
+			//plays the consume sound only if it was the player that got bigger
+			if (this.gameObject.tag == "Player") {
+				this.gameObject.GetComponent<Player_Controller> ().audio.Play ();
+			}
+
+
+
 		} else {
 			//what should we do if they're the same size?
 		}
