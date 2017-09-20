@@ -4,13 +4,7 @@ using UnityEngine;
 using FSM;
 
 public class AI : MonoBehaviour {
-	public bool switchState = false;
-	public float gameTimer;
-	public int seconds = 0;
-	public GameObject player;
-	public GameObject enemy;
-	public Transform obj;
-	private Vector3 playerOffSet;
+	private Transform enemy;
 
 	public StateMachine<AI> stateMachine { get; set; }
 
@@ -18,23 +12,45 @@ public class AI : MonoBehaviour {
 	{
 		stateMachine = new StateMachine<AI> (this);
 		stateMachine.ChangeState (State_idle.Instance);
-		gameTimer = Time.time;
 	}
 	private void Update()
 	{
-		player =  GameObject.FindWithTag("Player");
-		obj = this.transform;
-		playerOffSet = player.transform.position - this.transform.position;
-		Debug.Log (playerOffSet.sqrMagnitude);
-		if (playerOffSet.sqrMagnitude < 10)
-			stateMachine.ChangeState (State_escape.Instance);
-		else
-			stateMachine.ChangeState (State_idle.Instance);
+		enemy = alertSphere (this.transform.position, 3f);
+
+		if (enemy != null) {
+				stateMachine.ChangeState (State_escape.Instance);
+		} else {
+				stateMachine.ChangeState (State_idle.Instance);
+		}
+	
 	}
 
-	public void escape(){
-		Vector3 og = this.transform.position;
-		//this.transform.position = og + new Vector3 (1, 1, 0);
-		this.transform.position = Vector3.Lerp (this.transform.position, player.transform.position + og, .001f);
+
+	/// <summary>
+	/// Gets all colliders within a certain radius of itself.
+	/// </summary>
+	/// <returns>Largest objects transform or null if all other objects are smaller than its scale.</returns>
+	/// <param name="center">Center of alert sphere.</param>
+	/// <param name="radius">Radius or how lard the alert sphere is.</param>
+	public Transform alertSphere(Vector3 center, float radius) {
+		Transform largest = this.transform;
+		Collider[] inAlterSphere = Physics.OverlapSphere (center, radius);
+
+		if (inAlterSphere.Length > 0) {
+			for (int i = 0; i < inAlterSphere.Length; i++) {
+
+				if (inAlterSphere[i].GetComponent<Entity> ().size > largest.GetComponent<Entity> ().size) {
+					largest = inAlterSphere [i].transform;
+				}
+			}
+
+			if (largest == this.transform) {
+				return null;
+			} else {
+				return largest.transform;
+			}
+		}
+		return null;
 	}
+
 }

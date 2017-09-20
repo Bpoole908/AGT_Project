@@ -20,8 +20,8 @@ namespace FSM
 			if(currentState != null)
 				currentState.ExitState (Owner);
 			currentState = newState;
-			currentState.EnterState (Owner, myMono);
-			
+			currentState.EnterState (Owner);
+
 		}
 
 		public void Update() 
@@ -34,7 +34,7 @@ namespace FSM
 
 	public abstract class State<T>
 	{
-		public abstract void EnterState (T owner, MonoBehaviour myMono);
+		public abstract void EnterState (T owner);
 		public abstract void ExitState (T owner);
 		public abstract void UpdateState (T owner);
 	}

@@ -25,21 +25,28 @@ public class State_idle : State<AI> {
 
 	}
 
-	public override void EnterState(AI owner, MonoBehaviour myMono)
+	//Do upon entry of state
+	//Meat of the code should go in EnterState for now
+	public override void EnterState(AI owner)
 	{
-		Debug.Log("Idle");
+
 	}
 
+	//Do before exiting state
 	public override void ExitState(AI owner)
 	{
 
 	}
 
+	//Update to a new state
 	public override void UpdateState(AI owner)
 	{
 
 
+
 	}
+
+
 		
 		
 }
