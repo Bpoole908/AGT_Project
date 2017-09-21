@@ -14,7 +14,7 @@ public class Spawner_Script : MonoBehaviour {
 	void Start () {
 		
 		InvokeRepeating ("spawnEnemy", startDelay, spawnRate);
-		print ("test");
+
 
 	}
 	
@@ -28,10 +28,13 @@ public class Spawner_Script : MonoBehaviour {
 	void spawnEnemy(){
 
 		enemyClone = Instantiate (enemyPrefab, getRandomV3(), Quaternion.identity) as GameObject;
+		float scale = Random.Range (1.0f, 3.0f);
+		enemyClone.transform.localScale = new Vector3 (scale, scale, scale);
 
 	}
 
 	Vector3 getRandomV3(){
+
 		return new Vector3 (Random.Range(-25.0f, 25.0f), Random.Range(-25.0f, 25.0f), 0);
 	}
 }
