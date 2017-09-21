@@ -18,7 +18,7 @@ public class Absorb_Script : MonoBehaviour
 
 		if (thisSize > colSize) {
 			col.gameObject.SetActive(false);
-			StartCoroutine (this.sizeInc (this.transform));
+			StartCoroutine (this.sizeInc (this.transform, thisSize, colSize));
 
 			//plays the consume sound only if it was the player that got bigger
 			if (this.gameObject.tag == "Player") {
@@ -37,9 +37,9 @@ public class Absorb_Script : MonoBehaviour
 
 	}
 
-	IEnumerator sizeInc (Transform source)
+	IEnumerator sizeInc (Transform source, float bigger, float smaller)
 	{
-		float deltaScale = 0.5f;
+		float deltaScale = (smaller/bigger) + 1;
 		float rateOfChange = .1f;
 		Vector3 target = source.localScale + new Vector3 (deltaScale, deltaScale, deltaScale);
 		this.gameObject.GetComponent<Light> ().range += deltaScale;
