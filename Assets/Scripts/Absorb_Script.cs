@@ -18,6 +18,7 @@ public class Absorb_Script : MonoBehaviour
 
 		if (thisSize > colSize) {
 			col.gameObject.SetActive(false);
+			col.gameObject.GetComponent<Entity> ().removeSelfFromList ();
 			StartCoroutine (this.sizeInc (this.transform, thisSize, colSize));
 
 			//plays the consume sound only if it was the player that got bigger

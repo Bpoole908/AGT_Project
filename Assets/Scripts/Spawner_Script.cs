@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Spawner_Script : MonoBehaviour {
 
-
+	[HideInInspector] public List<GameObject> enemyList;
+	public int maxEnemies;
 
 	public float spawnRate;
 	public float startDelay;
@@ -14,6 +15,7 @@ public class Spawner_Script : MonoBehaviour {
 	void Start () {
 		
 		InvokeRepeating ("spawnEnemy", startDelay, spawnRate);
+		enemyList = new List<GameObject> ();
 
 
 	}
@@ -27,9 +29,12 @@ public class Spawner_Script : MonoBehaviour {
 	}
 	void spawnEnemy(){
 
-		enemyClone = Instantiate (enemyPrefab, getRandomV3(), Quaternion.identity) as GameObject;
-		float scale = Random.Range (0.5f, 3.0f);
-		enemyClone.transform.localScale = new Vector3 (scale, scale, scale);
+		if (enemyList.Count < maxEnemies) {
+			enemyClone = Instantiate (enemyPrefab, getRandomV3 (), Quaternion.identity) as GameObject;
+			float scale = Random.Range (0.5f, 3.0f);
+			enemyClone.transform.localScale = new Vector3 (scale, scale, scale);
+			enemyList.Add (enemyClone);
+		}
 
 	}
 

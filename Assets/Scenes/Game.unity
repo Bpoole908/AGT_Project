@@ -915,7 +915,7 @@ GameObject:
   - component: {fileID: 1231098556}
   m_Layer: 0
   m_Name: EnemySpawner
-  m_TagString: Untagged
+  m_TagString: Spawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -944,6 +944,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01fb956d47163fe4e84050e755e1fa0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyList: []
+  maxEnemies: 5
   spawnRate: 2
   startDelay: 1
   enemyPrefab: {fileID: 1560870241504874, guid: 46651944fed820c43a124ebb1e891f33,

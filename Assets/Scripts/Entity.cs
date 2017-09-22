@@ -20,5 +20,9 @@ public class Entity : MonoBehaviour {
 
 	}
 
+	public void removeSelfFromList(){
+		GameObject.FindGameObjectWithTag ("Spawner").GetComponent<Spawner_Script> ().enemyList.Remove (this.gameObject);
+	}
+
 
 }
