@@ -21,6 +21,8 @@ public class Camera_Controller : MonoBehaviour {
 
 		thisCamera.orthographicSize = 4 + player.transform.localScale.x;
 		transform.position = player.transform.position + offset;
+		thisCamera.nearClipPlane = -14 - player.transform.localScale.x;
+		thisCamera.farClipPlane = 14 + player.transform.localScale.x;
 
 		/*
 		if (player) { //prevents errors if player is destroyed

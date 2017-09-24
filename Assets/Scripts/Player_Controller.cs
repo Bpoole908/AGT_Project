@@ -6,11 +6,13 @@ public class Player_Controller : MonoBehaviour
 {
 
 
+	public float minSpeed, maxSpeed;
 	public float speed;
 	private Rigidbody rb;
 	private Transform tr;
 	[HideInInspector]public AudioSource audio;
 	private float oldSize;
+	public float energy;
 
 
 	// Use this for initialization
@@ -30,12 +32,26 @@ public class Player_Controller : MonoBehaviour
 
 		Vector3 movement = new Vector3 (moveHor, moveVer, 0.0f);
 
+		//need to figure out better algorithm here. this one seems a bit harsh
+		speed = (70 - GetComponent<Entity> ().size);
+
+		if (speed > maxSpeed)
+			speed = maxSpeed;
+		else if (speed < minSpeed)
+			speed = minSpeed;
+
 		tr.Translate (movement * speed / 400); 
 	}
 
 	void Update ()
 	{
 
+		if (Input.GetKey (KeyCode.Space)) {
+
+
+		}
+
+			
 
 	}
 
