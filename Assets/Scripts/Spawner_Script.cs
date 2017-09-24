@@ -37,9 +37,33 @@ public class Spawner_Script : MonoBehaviour {
 		}
 
 	}
+	/// <summary>
+	/// Returns true if a Vector3 is visible by the main camera.
+	/// </summary>
+	/// <returns><c>true</c>, if on screen was pointed, <c>false</c> otherwise.</returns>
+	/// <param name="v">V.</param>
+	bool pointOnScreen(Vector3 v){
+		
+		if (Camera.main.WorldToViewportPoint (v).x >= 0.0 && Camera.main.WorldToViewportPoint (v).x <= 1.0 && Camera.main.WorldToViewportPoint (v).y >= 0.0 && Camera.main.WorldToViewportPoint (v).y <= 1.0)
+			return true;
 
+		return false;
+	
+	}
+
+	/// <summary>
+	/// Returns a random V3 outside the view of the main camera.
+	/// </summary>
+	/// <returns>The random v3.</returns>
 	Vector3 getRandomV3(){
 
-		return new Vector3 (Random.Range(-25.0f, 25.0f), Random.Range(-25.0f, 25.0f), 0);
+		Vector3 rv = new Vector3 (Random.Range(-25.0f, 25.0f), Random.Range(-25.0f, 25.0f), 0);
+
+		while (pointOnScreen(rv)) {
+			rv = new Vector3 (Random.Range(-25.0f, 25.0f), Random.Range(-25.0f, 25.0f), 0);
+			
+		}
+
+		return rv;
 	}
 }
