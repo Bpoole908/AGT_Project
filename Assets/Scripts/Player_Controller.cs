@@ -34,6 +34,7 @@ public class Player_Controller : MonoBehaviour
 
 		//need to figure out better algorithm here. this one seems a bit harsh
 		speed = (70 - GetComponent<Entity> ().size);
+		//speed = 100/(GetComponent<Entity> ().size);
 
 		if (speed > maxSpeed)
 			speed = maxSpeed;
