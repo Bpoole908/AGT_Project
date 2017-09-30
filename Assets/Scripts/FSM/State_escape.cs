@@ -46,10 +46,22 @@ public class State_escape : State<AI> {
 			
 
 	}
-	//Need better movement, needs to detect which direction it is being chased from and move accordingly
+	//Need better movement, messes up depending on quadrant you are in!
 	public void escape(AI owner){
-		Vector3 og =  new Vector3 (1, 1, 0);
-		owner.transform.position = Vector3.Lerp (owner.transform.position, owner.transform.position + og, .01f);
+		float timeToTarget = 1f;
+		float maxSpeed = 5f;
+		Rigidbody rb = owner.GetComponent<Rigidbody> ();
+		Vector3 move;
+		Vector3 offSet = owner.enemy.position - owner.transform.position;
+		Vector3 target = owner.transform.position - offSet;
+		Vector3 towards =  target - owner.transform.position;
+
+		towards /= timeToTarget;
+		if (towards.magnitude > maxSpeed) {
+			towards.Normalize ();
+			towards *= maxSpeed;
+		}
+		rb.velocity = towards;
 	}
 
 

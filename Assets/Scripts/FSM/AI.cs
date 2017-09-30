@@ -4,7 +4,7 @@ using UnityEngine;
 using FSM;
 
 public class AI : MonoBehaviour {
-	private Transform enemy;
+	[HideInInspector] public Transform enemy;
 
 	public StateMachine<AI> stateMachine { get; set; }
 
