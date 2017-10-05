@@ -586,7 +586,7 @@ Transform:
   m_GameObject: {fileID: 575603387}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -0.03, y: -0.22, z: 7.82}
-  m_LocalScale: {x: 5.94625, y: 5, z: 5.9462423}
+  m_LocalScale: {x: 5, y: 5, z: 5}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
@@ -762,6 +762,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minSpeed: 20
   maxSpeed: 100
+  boostSpeed: 50
   speed: 100
   audio: {fileID: 0}
   energy: 0
@@ -776,6 +777,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6daa219481836624fa401c5d2dea86fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  background: {fileID: 575603387}
 --- !u!82 &742412013
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1014,6 +1016,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyList: []
   maxEnemies: 5
+  background: {fileID: 575603387}
   spawnRate: 2
   startDelay: 1
   enemyPrefab: {fileID: 1560870241504874, guid: 46651944fed820c43a124ebb1e891f33,

@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Absorb_Script : MonoBehaviour
 {
+
+	public GameObject background;
 	// Use this for initialization
 	void Start ()
 	{
@@ -43,10 +45,18 @@ public class Absorb_Script : MonoBehaviour
 		float deltaScale = (smaller/bigger) + 1;
 		float rateOfChange = .1f;
 		Vector3 target = source.localScale + new Vector3 (deltaScale, deltaScale, deltaScale);
+		Vector3 backgroundTarget = background.transform.localScale + new Vector3 (deltaScale, deltaScale, deltaScale);
 		this.gameObject.GetComponent<Light> ().range += deltaScale*2;
+
 
 		while (source.localScale.x < target.x) {
 			source.localScale = Vector3.Lerp (source.localScale, target, rateOfChange);
+
+			if (this.gameObject.tag == "Player") {
+				background.transform.localScale = Vector3.Lerp (background.transform.localScale, backgroundTarget, rateOfChange);
+			}
+
+
 			yield return null;
 		}
 

@@ -6,7 +6,7 @@ public class Spawner_Script : MonoBehaviour {
 
 	[HideInInspector] public List<GameObject> enemyList;
 	public int maxEnemies;
-
+	public GameObject background;
 	public float spawnRate;
 	public float startDelay;
 	public GameObject enemyPrefab;
@@ -57,10 +57,10 @@ public class Spawner_Script : MonoBehaviour {
 	/// <returns>The random v3.</returns>
 	Vector3 getRandomV3(){
 
-		Vector3 rv = new Vector3 (Random.Range(-25.0f, 25.0f), Random.Range(-25.0f, 25.0f), 0);
+		Vector3 rv = new Vector3 (Random.Range(background.gameObject.transform.localScale.x * -5.0f, background.gameObject.transform.localScale.x * 5.0f), Random.Range(background.gameObject.transform.localScale.y * -5.0f, background.gameObject.transform.localScale.y * 5.0f), 0);
 
 		while (pointOnScreen(rv)) {
-			rv = new Vector3 (Random.Range(-25.0f, 25.0f), Random.Range(-25.0f, 25.0f), 0);
+			rv = new Vector3 (Random.Range(background.gameObject.transform.localScale.x * -5.0f,  background.gameObject.transform.localScale.x * 5.0f), Random.Range(background.gameObject.transform.localScale.y * -5.0f, background.gameObject.transform.localScale.y * 5.0f), 0);
 			
 		}
 
