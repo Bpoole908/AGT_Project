@@ -60,10 +60,9 @@ public class Absorb_Script : MonoBehaviour
 
 			if (this.gameObject.tag == "Player") {
 				background.transform.localScale = Vector3.Lerp (background.transform.localScale, backgroundTarget, rateOfChange);
-				/*
-				for (int i = 0; i < bounds.Length; i++) {
-					bounds [i].gameObject.transform.localScale = 
-						Vector3.Lerp (bounds[i].gameObject.transform.localScale, target, rateOfChange);
+
+				/*for (int i = 0; i < bounds.Length; i++) {
+					bounds [i].gameObject.GetComponent<ParticleSystem> ().shape.scale.x = 100;
 				}*/
 
 			}
