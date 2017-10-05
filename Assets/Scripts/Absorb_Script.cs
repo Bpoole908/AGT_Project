@@ -6,7 +6,7 @@ public class Absorb_Script : MonoBehaviour
 {
 
 	public GameObject background;
-	public GameObject[] bounds;
+
 	// Use this for initialization
 	void Start ()
 	{
@@ -51,19 +51,22 @@ public class Absorb_Script : MonoBehaviour
 		float deltaScale = (smaller/bigger) + 1;
 		float rateOfChange = .1f;
 		Vector3 target = source.localScale + new Vector3 (deltaScale, deltaScale, deltaScale);
-		Vector3 backgroundTarget = background.transform.localScale + new Vector3 (deltaScale+0.5f, deltaScale+0.5f, deltaScale+0.5f);
+
+		//This information is only used if the player grows, so it's in an if statement to prevent enemies from trying to access a null gameobject
+		Vector3 backgroundTarget = Vector3.zero;
+		if (this.gameObject.tag == "Player")
+			backgroundTarget = background.transform.localScale + new Vector3 (deltaScale+0.5f, deltaScale+0.5f, deltaScale+0.5f);
+		
 		this.gameObject.GetComponent<Light> ().range += deltaScale*2;
 
 
 		while (source.localScale.x < target.x) {
 			source.localScale = Vector3.Lerp (source.localScale, target, rateOfChange);
 
+			//Only scales background when the player grows
 			if (this.gameObject.tag == "Player") {
+				
 				background.transform.localScale = Vector3.Lerp (background.transform.localScale, backgroundTarget, rateOfChange);
-
-				/*for (int i = 0; i < bounds.Length; i++) {
-					bounds [i].gameObject.GetComponent<ParticleSystem> ().shape.scale.x = 100;
-				}*/
 
 			}
 

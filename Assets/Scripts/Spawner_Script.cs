@@ -10,6 +10,7 @@ public class Spawner_Script : MonoBehaviour {
 	public float spawnRate;
 	public float startDelay;
 	public GameObject enemyPrefab;
+	public GameObject[] bounds;
 	GameObject enemyClone;
 	// Use this for initialization
 	void Start () {
@@ -57,11 +58,14 @@ public class Spawner_Script : MonoBehaviour {
 	/// <returns>The random v3.</returns>
 	Vector3 getRandomV3(){
 
-		Vector3 rv = new Vector3 (Random.Range(background.gameObject.transform.localScale.x * -5.0f, background.gameObject.transform.localScale.x * 5.0f), Random.Range(background.gameObject.transform.localScale.y * -5.0f, background.gameObject.transform.localScale.y * 5.0f), 0);
+		//Safe zone is the x and y coordinates of the space inside the background and bounds
+		float safeZoneX = (background.gameObject.transform.localScale.x * 3.0f);
+		float safeZoneY = (background.gameObject.transform.localScale.y * 3.0f);
+
+		Vector3 rv = new Vector3 (Random.Range(-1*safeZoneX, safeZoneX), Random.Range(-1*safeZoneY, safeZoneY), 0);
 
 		while (pointOnScreen(rv)) {
-			rv = new Vector3 (Random.Range(background.gameObject.transform.localScale.x * -5.0f,  background.gameObject.transform.localScale.x * 5.0f), Random.Range(background.gameObject.transform.localScale.y * -5.0f, background.gameObject.transform.localScale.y * 5.0f), 0);
-			
+			rv = new Vector3 (Random.Range(-1*safeZoneX, safeZoneX), Random.Range(-1*safeZoneY, safeZoneY), 0);
 		}
 
 		return rv;

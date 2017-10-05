@@ -214,7 +214,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 10.08, y: 1.16, z: 5}
+  m_Size: {x: 10.08, y: 1.5, z: 5}
   m_Center: {x: 0, y: 0, z: 0.18}
 --- !u!199 &45156024
 ParticleSystemRenderer:
@@ -327,7 +327,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 0
-  randomSeed: -1089938271
+  randomSeed: -364181695
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -3757,7 +3757,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 10.08, y: 1.16, z: 5}
+  m_Size: {x: 10.08, y: 1.5, z: 5}
   m_Center: {x: 0, y: 0, z: 0.18}
 --- !u!199 &215272512
 ParticleSystemRenderer:
@@ -3870,7 +3870,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 0
-  randomSeed: -1586528759
+  randomSeed: 1746666519
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -7202,7 +7202,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 0
-  randomSeed: -291728083
+  randomSeed: 998987688
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -10428,7 +10428,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 10.08, y: 1.16, z: 5}
+  m_Size: {x: 10.05, y: 1.5, z: 5}
   m_Center: {x: 0, y: 0, z: 0.18}
 --- !u!1 &450741873
 GameObject:
@@ -10850,11 +10850,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   background: {fileID: 575603387}
-  bounds:
-  - {fileID: 410231954}
-  - {fileID: 215272509}
-  - {fileID: 45156021}
-  - {fileID: 1953587196}
 --- !u!82 &742412013
 AudioSource:
   m_ObjectHideFlags: 0
@@ -11098,6 +11093,11 @@ MonoBehaviour:
   startDelay: 1
   enemyPrefab: {fileID: 1560870241504874, guid: 46651944fed820c43a124ebb1e891f33,
     type: 2}
+  bounds:
+  - {fileID: 410231954}
+  - {fileID: 215272509}
+  - {fileID: 45156021}
+  - {fileID: 1953587196}
 --- !u!1001 &1337923445
 Prefab:
   m_ObjectHideFlags: 0
@@ -11385,7 +11385,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 10.08, y: 1.16, z: 5}
+  m_Size: {x: 10.08, y: 1.5, z: 5}
   m_Center: {x: 0, y: 0, z: 0.18}
 --- !u!199 &1953587199
 ParticleSystemRenderer:
@@ -11498,7 +11498,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 0
-  randomSeed: -211936941
+  randomSeed: 1049372239
   InitialModule:
     serializedVersion: 3
     enabled: 1
