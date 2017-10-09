@@ -6,6 +6,7 @@ using FSM;
 public class AI : MonoBehaviour {
 	[HideInInspector] public Transform enemy;
 	public float colliderRadius = 3f;
+	public MonoBehaviour myMono;
 
 	public StateMachine<AI> stateMachine { get; set; }
 
@@ -17,12 +18,16 @@ public class AI : MonoBehaviour {
 	private void Update()
 	{
 		enemy = alertSphere (this.transform.position, colliderRadius);
+		stateMachine.Update();
+		/*
+		enemy = alertSphere (this.transform.position, colliderRadius);
 
 		if (enemy != null) {
 				stateMachine.ChangeState (State_escape.Instance);
 		} else {
-				stateMachine.ChangeState (State_idle.Instance);
+			stateMachine.ChangeState (State_wander.Instance);
 		}
+		*/
 	
 	}
 

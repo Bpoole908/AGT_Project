@@ -43,9 +43,12 @@ public class State_idle : State<AI> {
 	public override void UpdateState(AI owner)
 	{
 
-
+		if (owner.enemy != null) {
+			owner.stateMachine.ChangeState (State_escape.Instance);
+		}
 
 	}
+
 
 
 		

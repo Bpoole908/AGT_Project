@@ -3,34 +3,45 @@ using System.Collections.Generic;
 using UnityEngine;
 using FSM;
 
-public class State_escape : State<AI> {
-	private static State_escape instance;
+public class State_wander : State<AI> {
+	private static State_wander instance;
+	private static Vector3 wander_vector;
+	private static bool newVector = true;
 
-	private State_escape()
+	private State_wander()
 	{
-		if (instance != null) {
+		if(instance != null)
 			return;
-		}
 
 		instance = this;
 	}
 
-	public static State_escape Instance
+	public static State_wander Instance
 	{
 		get 
 		{
 			if (instance == null) {
-				instance = new State_escape ();
+				new State_wander ();
 			}
 			return instance;
 		}
 
 	}
+
 	//Do upon entry of state
 	//Meat of the code should go in EnterState for now
 	public override void EnterState(AI owner)
 	{
 		
+		if (newVector == true) {
+			wanderTo();
+		}
+		if (wander_vector == owner.transform.position) {
+			wanderTo();
+		}
+
+			
+		wander (owner);
 	}
 
 	//Do before exiting state
@@ -42,19 +53,19 @@ public class State_escape : State<AI> {
 	//Update to a new state
 	public override void UpdateState(AI owner)
 	{
-		escape(owner);
-		if (owner.enemy == null) {
-			owner.stateMachine.ChangeState (State_idle.Instance);
-		}
-	}
 
-	public void escape(AI owner){
-		float timeToTarget = 1f;
+
+
+	}
+	public void wanderTo() {
+		wander_vector = new Vector3 (Random.Range (-24f, 24f), Random.Range (-24f, 24f), 0);
+		newVector = false;
+	}
+	public void wander(AI owner){
+		float timeToTarget = 3f;
 		float maxSpeed = 15f * (1 / owner.transform.localScale.x);
 		Rigidbody rb = owner.GetComponent<Rigidbody> ();
-		Vector3 offSet = owner.enemy.position - owner.transform.position;
-		Vector3 target = owner.transform.position - offSet;
-		Vector3 towards =  target - owner.transform.position;
+		Vector3 towards =  wander_vector - owner.transform.position;
 
 		towards /= timeToTarget;
 		if (towards.magnitude > maxSpeed) {
@@ -62,7 +73,8 @@ public class State_escape : State<AI> {
 			towards *= maxSpeed;
 		}
 		rb.velocity = towards;
+		
 	}
-
+		
 
 }

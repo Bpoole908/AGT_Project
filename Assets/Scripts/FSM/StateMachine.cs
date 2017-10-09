@@ -8,7 +8,6 @@ namespace FSM
 	{
 		public State<T> currentState { get; private set; }
 		public T Owner;
-		public MonoBehaviour myMono;
 
 		public StateMachine(T _o)
 		{
