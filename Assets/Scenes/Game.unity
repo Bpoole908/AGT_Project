@@ -10444,7 +10444,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &450741874
 Transform:
   m_ObjectHideFlags: 0
@@ -10657,7 +10657,7 @@ Transform:
   m_GameObject: {fileID: 575603387}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -0.03, y: -0.22, z: 7.82}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalScale: {x: 10, y: 5, z: 10}
   m_Children:
   - {fileID: 1598079947}
   m_Father: {fileID: 0}
@@ -10832,7 +10832,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e0dcec9ebb81b14186f6edf7e125214, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minSpeed: 20
+  minSpeed: 30
   maxSpeed: 100
   boostSpeed: 50
   speed: 100
