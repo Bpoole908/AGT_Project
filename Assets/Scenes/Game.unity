@@ -10838,6 +10838,7 @@ MonoBehaviour:
   speed: 100
   audio: {fileID: 0}
   energy: 0
+  maxEnergy: 100
   gameController: {fileID: 767367821}
 --- !u!114 &742412012
 MonoBehaviour:

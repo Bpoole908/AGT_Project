@@ -18,6 +18,7 @@ public class Player_Controller : MonoBehaviour
 	[HideInInspector]public AudioSource audio;
 	private float oldSize;
 	public float energy;
+	public float maxEnergy;
 	private bool boosting;
 	public GameObject gameController;
 
@@ -30,13 +31,13 @@ public class Player_Controller : MonoBehaviour
 		audio = GetComponent<AudioSource> ();
 		oldSize = 0.0f;
 		boosting = false;
-		energy = 100.0f;
+		energy = maxEnergy;
 	}
 
 	public void updateEnergy(float change){
 
 		energy += change;
-		energy = Mathf.Clamp(energy, -1*Mathf.Infinity, 100.0f);
+		energy = Mathf.Clamp(energy, -1*Mathf.Infinity, maxEnergy);
 		//print (energy);
 	}
 
