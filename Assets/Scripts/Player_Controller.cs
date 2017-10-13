@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class Player_Controller : MonoBehaviour
 {
+	/*
+		Energy 10% max deter per sec.
+		Consume increases relative to size of enemy.
+		
 
+	*/
 
 	public float minSpeed, maxSpeed, boostSpeed;
 	public float speed;
@@ -14,6 +19,7 @@ public class Player_Controller : MonoBehaviour
 	private float oldSize;
 	public float energy;
 	private bool boosting;
+	public GameObject gameController;
 
 
 	// Use this for initialization
@@ -24,6 +30,14 @@ public class Player_Controller : MonoBehaviour
 		audio = GetComponent<AudioSource> ();
 		oldSize = 0.0f;
 		boosting = false;
+		energy = 100.0f;
+	}
+
+	public void updateEnergy(float change){
+
+		energy += change;
+		energy = Mathf.Clamp(energy, -1*Mathf.Infinity, 100.0f);
+		//print (energy);
 	}
 
 
@@ -49,6 +63,9 @@ public class Player_Controller : MonoBehaviour
 		}
 
 		tr.Translate (movement * speed / 400); 
+
+		updateEnergy (-1*(10f/60.0f));
+
 	}
 
 	void Update ()
@@ -65,8 +82,10 @@ public class Player_Controller : MonoBehaviour
 			print("stop boosting");
 			boosting = false;
 		}
-			
+
 
 	}
+
+
 
 }

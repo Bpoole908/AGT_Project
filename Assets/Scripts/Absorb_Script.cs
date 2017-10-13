@@ -6,8 +6,8 @@ public class Absorb_Script : MonoBehaviour
 {
 
 	public GameObject background;
-	public Vector3 planeSize;
-	//100x100 default
+	public GameObject gameController;
+
 
 	// Use this for initialization
 	void Start ()
@@ -56,8 +56,11 @@ public class Absorb_Script : MonoBehaviour
 
 		//This information is only used if the player grows, so it's in an if statement to prevent enemies from trying to access a null gameobject
 		Vector3 backgroundTarget = Vector3.zero;
-		if (this.gameObject.tag == "Player")
-			backgroundTarget = background.transform.localScale + new Vector3 (deltaScale+0.5f, deltaScale+0.5f, deltaScale+0.5f);
+		if (this.gameObject.tag == "Player") {
+			backgroundTarget = background.transform.localScale + new Vector3 (deltaScale + 0.5f, deltaScale + 0.5f, deltaScale + 0.5f);
+			print (deltaScale);
+			this.gameObject.GetComponent<Player_Controller> ().updateEnergy (deltaScale*5);
+		}
 		
 		this.gameObject.GetComponent<Light> ().range += deltaScale*2;
 
@@ -69,6 +72,9 @@ public class Absorb_Script : MonoBehaviour
 			if (this.gameObject.tag == "Player") {
 				
 				background.transform.localScale = Vector3.Lerp (background.transform.localScale, backgroundTarget, rateOfChange);
+				gameController.GetComponent<Game_Controller> ().planeSize = backgroundTarget;
+
+
 
 			}
 
