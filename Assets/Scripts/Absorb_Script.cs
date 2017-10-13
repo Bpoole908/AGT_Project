@@ -6,6 +6,8 @@ public class Absorb_Script : MonoBehaviour
 {
 
 	public GameObject background;
+	public Vector3 planeSize;
+	//100x100 default
 
 	// Use this for initialization
 	void Start ()
