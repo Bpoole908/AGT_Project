@@ -33,12 +33,16 @@ public class Player_Controller : MonoBehaviour
 		boosting = false;
 		energy = maxEnergy;
 	}
+	/// <summary>
+	/// Updates the energy. Pass it a value for the percentage to update it by, positive or negative.
+	/// </summary>
+	/// <param name="change">Change.</param>
 
 	public void updateEnergy(float change){
 
 		energy += change;
 		energy = Mathf.Clamp(energy, -1*Mathf.Infinity, maxEnergy);
-		//print (energy);
+		print (energy);
 	}
 
 
@@ -65,7 +69,7 @@ public class Player_Controller : MonoBehaviour
 
 		tr.Translate (movement * speed / 400); 
 
-		updateEnergy (-1*(10f/60.0f));
+		updateEnergy (-1*(10.0f / 60.0f));
 
 	}
 

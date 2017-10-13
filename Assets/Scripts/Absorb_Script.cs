@@ -50,6 +50,7 @@ public class Absorb_Script : MonoBehaviour
 
 	IEnumerator sizeInc (Transform source, float bigger, float smaller)
 	{
+		//minimum of 1, maximum of 2. Usually falls between 1.2 and 1.5
 		float deltaScale = (smaller/bigger) + 1;
 		float rateOfChange = .1f;
 		Vector3 target = source.localScale + new Vector3 (deltaScale, deltaScale, deltaScale);
@@ -58,8 +59,15 @@ public class Absorb_Script : MonoBehaviour
 		Vector3 backgroundTarget = Vector3.zero;
 		if (this.gameObject.tag == "Player") {
 			backgroundTarget = background.transform.localScale + new Vector3 (deltaScale + 0.5f, deltaScale + 0.5f, deltaScale + 0.5f);
-			print (deltaScale);
-			this.gameObject.GetComponent<Player_Controller> ().updateEnergy (deltaScale*5);
+
+			//maybe replace this with some math later
+			if(deltaScale < 1.2)
+				this.gameObject.GetComponent<Player_Controller> ().updateEnergy (10f);
+			else if(deltaScale < 1.4f)
+				this.gameObject.GetComponent<Player_Controller> ().updateEnergy (50f);
+			else
+				this.gameObject.GetComponent<Player_Controller> ().updateEnergy (100f);
+				
 		}
 		
 		this.gameObject.GetComponent<Light> ().range += deltaScale*2;
