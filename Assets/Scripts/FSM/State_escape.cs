@@ -51,7 +51,7 @@ public class State_escape : State<AI> {
 
 	public void escape(AI owner){
 		float timeToTarget = 1f;
-		float maxSpeed = 15f * (1 / owner.transform.localScale.x);
+		float maxSpeed = 100f * (1 / owner.transform.localScale.x);
 		Rigidbody rb = owner.GetComponent<Rigidbody> ();
 		Vector3 offSet = owner.enemy.position - owner.transform.position;
 		Vector3 target = owner.transform.position - offSet;

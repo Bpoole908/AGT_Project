@@ -6,6 +6,7 @@ using FSM;
 public class State_idle : State<AI> {
 	private static State_idle instance;
 
+
 	private State_idle()
 	{
 		if(instance != null)
@@ -30,7 +31,8 @@ public class State_idle : State<AI> {
 	//Meat of the code should go in EnterState for now
 	public override void EnterState(AI owner)
 	{
-
+		owner.stateTimer = Time.time;
+		owner.seconds = 0;
 	}
 
 	//Do before exiting state
@@ -42,9 +44,17 @@ public class State_idle : State<AI> {
 	//Update to a new state
 	public override void UpdateState(AI owner)
 	{
+		//After 5 seconds AI will switch to wandering state
+		if (Time.time > owner.stateTimer + 1) {
+			owner.stateTimer = Time.time;
+			owner.seconds++;
+		}
 
 		if (owner.enemy != null) {
 			owner.stateMachine.ChangeState (State_escape.Instance);
+		} 
+		else if(owner.seconds == 5){
+			owner.stateMachine.ChangeState (State_wander.Instance);
 		}
 
 	}

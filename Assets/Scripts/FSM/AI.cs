@@ -5,6 +5,9 @@ using FSM;
 
 public class AI : MonoBehaviour {
 	[HideInInspector] public Transform enemy;
+	public Vector3 wanderTo;
+	public float stateTimer;
+	public int seconds = 0;
 	public float colliderRadius = 4f;
 	public MonoBehaviour myMono;
 	public GameObject plane;
@@ -51,6 +54,18 @@ public class AI : MonoBehaviour {
 			}
 		}
 		return null;
+	}
+
+	public void setWanderTo(AI owner){
+		//Plane Size
+		float xbound = (owner.plane.transform.localScale.x - 4) * 10; //Hardcoded using z bc defalut plane is in XZ, but ours is rotated to be in XY
+		float ybound = (owner.plane.transform.localScale.z - 4) * 10; //Hardcoded using z bc defalut plane is in XZ, but ours is rotated to be in XY
+		Vector3 center = owner.plane.transform.position;
+
+		float xPos = center.x + Random.Range (-xbound/2, xbound/2);
+		float yPos = center.y + Random.Range (-ybound/2, ybound/2);
+
+		wanderTo = new Vector3 (xPos, yPos, center.z);
 	}
 
 }
