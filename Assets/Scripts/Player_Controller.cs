@@ -42,7 +42,7 @@ public class Player_Controller : MonoBehaviour
 
 		energy += change;
 		energy = Mathf.Clamp(energy, -1*Mathf.Infinity, maxEnergy);
-		print (energy);
+		//print (energy);
 	}
 
 

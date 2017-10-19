@@ -42,10 +42,11 @@ public class State_escape : State<AI> {
 	//Update to a new state
 	public override void UpdateState(AI owner)
 	{
-		escape(owner);
+		
 		if (owner.enemy == null) {
 			owner.stateMachine.ChangeState (State_idle.Instance);
 		}
+		escape(owner);
 	}
 
 	public void escape(AI owner){

@@ -5,8 +5,7 @@ using FSM;
 
 public class State_wander : State<AI> {
 	private static State_wander instance;
-	private static Vector3 wander_vector;
-	private static bool newVector = true;
+	private Vector3 wanderTo;
 
 	private State_wander()
 	{
@@ -33,15 +32,8 @@ public class State_wander : State<AI> {
 	public override void EnterState(AI owner)
 	{
 		
-		if (newVector == true) {
-			wanderTo();
-		}
-		if (wander_vector == owner.transform.position) {
-			wanderTo();
-		}
+		setWanderTo (owner);
 
-			
-		wander (owner);
 	}
 
 	//Do before exiting state
@@ -53,19 +45,35 @@ public class State_wander : State<AI> {
 	//Update to a new state
 	public override void UpdateState(AI owner)
 	{
+		Debug.Log (wanderTo);
+		if (owner.enemy != null) {
+			Debug.Log ("switching to escape");
+			owner.stateMachine.ChangeState (State_escape.Instance);
+		}
 
-
+		if (owner.transform.position == wanderTo) {
+			setWanderTo (owner);
+		}
+		wander (owner);
 
 	}
-	public void wanderTo() {
-		wander_vector = new Vector3 (Random.Range (-24f, 24f), Random.Range (-24f, 24f), 0);
-		newVector = false;
+	public void setWanderTo(AI owner){
+		//Plane Size
+		float xbound = (owner.plane.transform.localScale.x - 2) * 10;
+		float ybound = (owner.plane.transform.localScale.z - 2) * 10; //Hardcoded using z bc defalut plane is in XZ, but ours is rotated to be in XY
+		Vector3 center = owner.plane.transform.position;
+
+		float xPos = center.x + Random.Range (-xbound/2, xbound/2);
+		float yPos = center.y + Random.Range (-ybound/2, ybound/2);
+
+		wanderTo = new Vector3 (xPos, yPos, center.z);
 	}
+
 	public void wander(AI owner){
-		float timeToTarget = 3f;
+		float timeToTarget = 10f;
 		float maxSpeed = 15f * (1 / owner.transform.localScale.x);
 		Rigidbody rb = owner.GetComponent<Rigidbody> ();
-		Vector3 towards =  wander_vector - owner.transform.position;
+		Vector3 towards =  wanderTo - owner.transform.position;
 
 		towards /= timeToTarget;
 		if (towards.magnitude > maxSpeed) {
