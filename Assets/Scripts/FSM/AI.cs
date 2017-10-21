@@ -5,10 +5,12 @@ using FSM;
 
 public class AI : MonoBehaviour {
 	[HideInInspector] public Transform enemy;
+	[HideInInspector] public Transform prey;
 	[HideInInspector] public Vector3 wanderTo;
 	[HideInInspector] public float stateTimer;
 	[HideInInspector] public int seconds = 0;
-	public float colliderRadius = 4f;
+	public float alertRadius = 4f;
+	public float chaseRadius = 5f;
 	[HideInInspector] public MonoBehaviour myMono;
 	public GameObject plane;
 	public StateMachine<AI> stateMachine { get; set; }
@@ -21,7 +23,8 @@ public class AI : MonoBehaviour {
 	}
 	private void Update()
 	{
-		enemy = alertSphere (this.transform.position, colliderRadius);
+		enemy = alertSphere (this.transform.position, alertRadius);
+		prey = chaseSphere (this.transform.position, chaseRadius);
 		stateMachine.Update();
 		Debug.Log (stateMachine.currentState);
 	
@@ -41,7 +44,7 @@ public class AI : MonoBehaviour {
 		if (inAlterSphere.Length > 0) {
 			foreach(Collider obj in inAlterSphere) {
 				if (obj.gameObject != null && !obj.CompareTag("Bounds")) {
-					Debug.Log (obj + " " + largest.GetComponent<Entity> ().gameObject);
+					//Debug.Log (obj + " " + largest.GetComponent<Entity> ().gameObject);
 					if (obj.GetComponent<Entity> ().size > largest.GetComponent<Entity> ().size) {
 						largest = obj.transform;
 					}
@@ -52,8 +55,25 @@ public class AI : MonoBehaviour {
 			if (largest == this.transform) {
 				return null;
 			} else {
-				Debug.Log (largest.GetComponent<Entity> ().gameObject);
+				//Debug.Log (largest.GetComponent<Entity> ().gameObject);
 				return largest.transform;
+			}
+		}
+		return null;
+	}
+
+	public Transform chaseSphere(Vector3 center, float radius) {
+		Collider[] inAlterSphere = Physics.OverlapSphere (center, radius);
+		Transform localSize = this.transform;
+
+		if (inAlterSphere.Length > 0) {
+			foreach(Collider obj in inAlterSphere) {
+				if (obj.gameObject != null && !obj.CompareTag("Bounds")) {
+					if (obj.CompareTag("Player") && localSize.GetComponent<Entity>().size > obj.GetComponent<Entity>().size) {
+						Debug.Log (obj.transform);
+						return obj.transform;
+					}
+				}
 			}
 		}
 		return null;

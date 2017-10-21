@@ -45,6 +45,10 @@ public class State_wander : State<AI> {
 	public override void UpdateState(AI owner)
 	{
 		//Debug.Log (owner.wanderTo);
+		if (owner.prey != null) {
+			owner.stateMachine.ChangeState (State_chase.Instance);
+		}
+
 		if (owner.enemy != null) {
 			owner.stateMachine.ChangeState (State_escape.Instance);
 		}

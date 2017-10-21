@@ -50,10 +50,13 @@ public class State_idle : State<AI> {
 			owner.seconds++;
 		}
 
+		if (owner.prey != null) {
+			owner.stateMachine.ChangeState (State_chase.Instance);
+		}
 		if (owner.enemy != null) {
 			owner.stateMachine.ChangeState (State_escape.Instance);
 		} 
-		else if(owner.seconds == 5){
+		if(owner.seconds == 5){
 			owner.stateMachine.ChangeState (State_wander.Instance);
 		}
 
