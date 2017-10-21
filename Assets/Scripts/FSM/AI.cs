@@ -5,14 +5,14 @@ using FSM;
 
 public class AI : MonoBehaviour {
 	[HideInInspector] public Transform enemy;
-	public Vector3 wanderTo;
-	public float stateTimer;
-	public int seconds = 0;
+	[HideInInspector] public Vector3 wanderTo;
+	[HideInInspector] public float stateTimer;
+	[HideInInspector] public int seconds = 0;
 	public float colliderRadius = 4f;
-	public MonoBehaviour myMono;
+	[HideInInspector] public MonoBehaviour myMono;
 	public GameObject plane;
-
 	public StateMachine<AI> stateMachine { get; set; }
+	//private const int layerMask = ~(1 << 7)
 
 	private void Start()
 	{
@@ -39,10 +39,12 @@ public class AI : MonoBehaviour {
 		Collider[] inAlterSphere = Physics.OverlapSphere (center, radius);
 
 		if (inAlterSphere.Length > 0) {
-			for (int i = 0; i < inAlterSphere.Length; i++) {
-
-				if (inAlterSphere[i].GetComponent<Entity> ().size > largest.GetComponent<Entity> ().size) {
-					largest = inAlterSphere [i].transform;
+			foreach(Collider obj in inAlterSphere) {
+				if (obj.gameObject != null && !obj.CompareTag("Bounds")) {
+					Debug.Log (obj + " " + largest.GetComponent<Entity> ().gameObject);
+					if (obj.GetComponent<Entity> ().size > largest.GetComponent<Entity> ().size) {
+						largest = obj.transform;
+					}
 				}
 			}
 
@@ -50,11 +52,25 @@ public class AI : MonoBehaviour {
 			if (largest == this.transform) {
 				return null;
 			} else {
+				Debug.Log (largest.GetComponent<Entity> ().gameObject);
 				return largest.transform;
 			}
 		}
 		return null;
 	}
+	/*
+	public void moveTowards(AI owner, float timeToTarget, float maxSpeed, Vector3 target){
+		Rigidbody rb = owner.GetComponent<Rigidbody> ();
+		Vector3 towards =  target - owner.transform.position;
+
+		towards /= timeToTarget;
+		if (towards.magnitude > maxSpeed) {
+			towards.Normalize ();
+			towards *= maxSpeed;
+		}
+		rb.velocity = towards;
+	}
+	*/
 
 	public void setWanderTo(AI owner){
 		//Plane Size

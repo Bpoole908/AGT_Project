@@ -46,12 +46,15 @@ public class State_escape : State<AI> {
 		if (owner.enemy == null) {
 			owner.stateMachine.ChangeState (State_idle.Instance);
 		}
-		escape(owner);
+		if (owner.enemy != null) {
+			escape(owner);
+		}
+
 	}
 
 	public void escape(AI owner){
-		float timeToTarget = 1f;
-		float maxSpeed = 100f * (1 / owner.transform.localScale.x);
+		float timeToTarget = .5f;
+		float maxSpeed = 30f * (1 / owner.transform.localScale.x);
 		Rigidbody rb = owner.GetComponent<Rigidbody> ();
 		Vector3 offSet = owner.enemy.position - owner.transform.position;
 		Vector3 target = owner.transform.position - offSet;
@@ -64,6 +67,5 @@ public class State_escape : State<AI> {
 		}
 		rb.velocity = towards;
 	}
-
 
 }
