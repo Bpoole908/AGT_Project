@@ -20,6 +20,7 @@ public class AI : MonoBehaviour {
 	{
 		stateMachine = new StateMachine<AI> (this);
 		stateMachine.ChangeState (State_idle.Instance);
+		plane = GameObject.Find("Plane");
 	}
 	private void Update()
 	{

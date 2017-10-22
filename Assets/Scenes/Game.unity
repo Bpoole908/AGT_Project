@@ -210,10 +210,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 0}
+  prey: {fileID: 0}
   wanderTo: {x: 0, y: 0, z: 0}
   stateTimer: 0
   seconds: 0
-  colliderRadius: 3
+  alertRadius: 4
+  chaseRadius: 5
   myMono: {fileID: 0}
   plane: {fileID: 575603387}
 --- !u!108 &43699293
@@ -7332,10 +7334,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 0}
+  prey: {fileID: 0}
   wanderTo: {x: 0, y: 0, z: 0}
   stateTimer: 0
   seconds: 0
-  colliderRadius: 3
+  alertRadius: 4
+  chaseRadius: 5
   myMono: {fileID: 0}
   plane: {fileID: 575603387}
 --- !u!108 &382449273
@@ -11078,10 +11082,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 0}
+  prey: {fileID: 0}
   wanderTo: {x: 0, y: 0, z: 0}
   stateTimer: 0
   seconds: 0
-  colliderRadius: 3
+  alertRadius: 4
+  chaseRadius: 5
   myMono: {fileID: 0}
   plane: {fileID: 575603387}
 --- !u!108 &596419710
@@ -11256,10 +11262,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 0}
+  prey: {fileID: 0}
   wanderTo: {x: 0, y: 0, z: 0}
   stateTimer: 0
   seconds: 0
-  colliderRadius: 3
+  alertRadius: 4
+  chaseRadius: 5
   myMono: {fileID: 0}
   plane: {fileID: 575603387}
 --- !u!108 &644176440
@@ -11820,10 +11828,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 0}
+  prey: {fileID: 0}
   wanderTo: {x: 0, y: 0, z: 0}
   stateTimer: 0
   seconds: 0
-  colliderRadius: 3
+  alertRadius: 4
+  chaseRadius: 5
   myMono: {fileID: 0}
   plane: {fileID: 575603387}
 --- !u!108 &1054751828
@@ -11998,10 +12008,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 0}
+  prey: {fileID: 0}
   wanderTo: {x: 0, y: 0, z: 0}
   stateTimer: 0
   seconds: 0
-  colliderRadius: 3
+  alertRadius: 4
+  chaseRadius: 5
   myMono: {fileID: 0}
   plane: {fileID: 575603387}
 --- !u!108 &1096324754
@@ -12184,7 +12196,8 @@ MonoBehaviour:
   background: {fileID: 575603387}
   spawnRate: 2
   startDelay: 1
-  enemyPrefab: {fileID: 0}
+  enemyPrefab: {fileID: 1592729924375498, guid: b3b5661550e212241a74b7191690f3fc,
+    type: 2}
   bounds:
   - {fileID: 410231954}
   - {fileID: 215272509}
@@ -12227,10 +12240,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 0}
+  prey: {fileID: 0}
   wanderTo: {x: 0, y: 0, z: 0}
   stateTimer: 0
   seconds: 0
-  colliderRadius: 3
+  alertRadius: 4
+  chaseRadius: 5
   myMono: {fileID: 0}
   plane: {fileID: 575603387}
 --- !u!108 &1298750712
@@ -12577,10 +12592,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemy: {fileID: 0}
+  prey: {fileID: 0}
   wanderTo: {x: 0, y: 0, z: 0}
   stateTimer: 0
   seconds: 0
-  colliderRadius: 3
+  alertRadius: 4
+  chaseRadius: 5
   myMono: {fileID: 0}
   plane: {fileID: 575603387}
 --- !u!108 &1902334103
