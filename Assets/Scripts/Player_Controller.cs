@@ -66,8 +66,14 @@ public class Player_Controller : MonoBehaviour
 		} else {
 			speed = (70 - GetComponent<Entity> ().size) + boostSpeed;
 		}
+		print (tr.position.x);
 
 		tr.Translate (movement * speed / 400); 
+		float boundsFactor = gameController.GetComponent<Game_Controller> ().planeSize.x*10/2f*0.7f;
+		//float boundsFactor = 35f;
+		print (gameController.GetComponent<Game_Controller> ().planeSize.x);
+		if (tr.position.x < -1*boundsFactor || tr.position.x > boundsFactor || tr.position.y < -1*boundsFactor || tr.position.y > boundsFactor)
+			tr.Translate(-1*movement * speed / 400);
 
 		updateEnergy (-1*(10.0f / 60.0f));
 

@@ -16,6 +16,6 @@ public class Game_Controller : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		planeSize = plane.transform.localScale;
 	}
 }
