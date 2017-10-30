@@ -9,9 +9,11 @@ public class AI : MonoBehaviour {
 	[HideInInspector] public Vector3 wanderTo;
 	[HideInInspector] public float stateTimer;
 	[HideInInspector] public int seconds = 0;
-	public float alertRadius = 4f;
-	public float chaseRadius = 5f;
+	[HideInInspector] public float alertRadius;
+	[HideInInspector] public float chaseRadius;
 	[HideInInspector] public MonoBehaviour myMono;
+	public float alertScale = 3;
+	public float chaseScale = 4;
 	public GameObject plane;
 	public StateMachine<AI> stateMachine { get; set; }
 	//private const int layerMask = ~(1 << 7)
@@ -21,6 +23,8 @@ public class AI : MonoBehaviour {
 		stateMachine = new StateMachine<AI> (this);
 		stateMachine.ChangeState (State_idle.Instance);
 		plane = GameObject.Find("Plane");
+		alertRadius = this.transform.localScale.x + alertScale;
+		chaseRadius = this.transform.localScale.x + chaseScale;
 	}
 	private void Update()
 	{
