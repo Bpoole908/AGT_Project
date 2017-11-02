@@ -69,6 +69,7 @@ public class Player_Controller : MonoBehaviour
 		//print (tr.position.x);
 
 		tr.Translate (movement * speed / 400); 
+		/*
 		float boundsFactor = gameController.GetComponent<Game_Controller> ().planeSize.x*10/2f*0.7f;
 
 		if (tr.position.x < -1 * boundsFactor|| tr.position.x > boundsFactor)
