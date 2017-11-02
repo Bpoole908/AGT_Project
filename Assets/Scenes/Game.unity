@@ -217,7 +217,10 @@ MonoBehaviour:
   alertRadius: 4
   chaseRadius: 5
   myMono: {fileID: 0}
+  alertScale: 3
+  chaseScale: 4
   plane: {fileID: 575603387}
+  gameController: {fileID: 0}
 --- !u!108 &43699293
 Light:
   m_ObjectHideFlags: 0
@@ -7341,7 +7344,10 @@ MonoBehaviour:
   alertRadius: 4
   chaseRadius: 5
   myMono: {fileID: 0}
+  alertScale: 3
+  chaseScale: 4
   plane: {fileID: 575603387}
+  gameController: {fileID: 0}
 --- !u!108 &382449273
 Light:
   m_ObjectHideFlags: 0
@@ -11089,7 +11095,10 @@ MonoBehaviour:
   alertRadius: 4
   chaseRadius: 5
   myMono: {fileID: 0}
+  alertScale: 3
+  chaseScale: 4
   plane: {fileID: 575603387}
+  gameController: {fileID: 0}
 --- !u!108 &596419710
 Light:
   m_ObjectHideFlags: 0
@@ -11269,7 +11278,10 @@ MonoBehaviour:
   alertRadius: 4
   chaseRadius: 5
   myMono: {fileID: 0}
+  alertScale: 3
+  chaseScale: 4
   plane: {fileID: 575603387}
+  gameController: {fileID: 0}
 --- !u!108 &644176440
 Light:
   m_ObjectHideFlags: 0
@@ -11814,7 +11826,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1054751827
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11835,7 +11847,10 @@ MonoBehaviour:
   alertRadius: 4
   chaseRadius: 5
   myMono: {fileID: 0}
+  alertScale: 3
+  chaseScale: 4
   plane: {fileID: 575603387}
+  gameController: {fileID: 0}
 --- !u!108 &1054751828
 Light:
   m_ObjectHideFlags: 0
@@ -12015,7 +12030,10 @@ MonoBehaviour:
   alertRadius: 4
   chaseRadius: 5
   myMono: {fileID: 0}
+  alertScale: 3
+  chaseScale: 4
   plane: {fileID: 575603387}
+  gameController: {fileID: 0}
 --- !u!108 &1096324754
 Light:
   m_ObjectHideFlags: 0
@@ -12247,7 +12265,10 @@ MonoBehaviour:
   alertRadius: 4
   chaseRadius: 5
   myMono: {fileID: 0}
+  alertScale: 3
+  chaseScale: 4
   plane: {fileID: 575603387}
+  gameController: {fileID: 0}
 --- !u!108 &1298750712
 Light:
   m_ObjectHideFlags: 0
@@ -12599,7 +12620,10 @@ MonoBehaviour:
   alertRadius: 4
   chaseRadius: 5
   myMono: {fileID: 0}
+  alertScale: 3
+  chaseScale: 4
   plane: {fileID: 575603387}
+  gameController: {fileID: 0}
 --- !u!108 &1902334103
 Light:
   m_ObjectHideFlags: 0
@@ -16100,7 +16124,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1054751826}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 46.2, y: 23.4, z: 0}
+  m_LocalPosition: {x: 36, y: 23.4, z: 0}
   m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children: []
   m_Father: {fileID: 450741874}

@@ -63,7 +63,8 @@ public class State_chase : State<AI> {
 			towards.Normalize ();
 			towards *= maxSpeed;
 		}
-		rb.velocity = towards;
+			
+			rb.velocity = towards;
 
 	}
 }

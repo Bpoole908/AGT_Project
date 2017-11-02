@@ -70,8 +70,9 @@ public class Absorb_Script : MonoBehaviour
 				
 		}
 		
-		this.gameObject.GetComponent<Light> ().range += deltaScale*2;
-
+		//this.gameObject.GetComponent<Light> ().range += deltaScale*2;
+		this.gameObject.GetComponent<Light> ().range *= this.gameObject.transform.localScale.x*2;
+		//print (this.gameObject.transform.localScale.x);
 
 		while (source.localScale.x < target.x) {
 			source.localScale = Vector3.Lerp (source.localScale, target, rateOfChange);
@@ -87,6 +88,8 @@ public class Absorb_Script : MonoBehaviour
 			}
 
 
+			this.gameObject.GetComponent<Light> ().range = this.gameObject.transform.localScale.x*2;
+			print (this.gameObject.transform.localScale.x);
 			yield return null;
 		}
 
