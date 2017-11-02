@@ -70,8 +70,15 @@ public class Player_Controller : MonoBehaviour
 
 		tr.Translate (movement * speed / 400); 
 		float boundsFactor = gameController.GetComponent<Game_Controller> ().planeSize.x*10/2f*0.7f;
+
+		if (tr.position.x < -1 * boundsFactor|| tr.position.x > boundsFactor)
+			tr.position = new Vector3(-1*tr.position.x,tr.position.y, tr.position.z);
+		else if(tr.position.y < -1*boundsFactor || tr.position.y > boundsFactor)
+			tr.position = new Vector3(tr.position.x,-1*tr.position.y, tr.position.z);
+		/*
 		if (tr.position.x < -1*boundsFactor || tr.position.x > boundsFactor || tr.position.y < -1*boundsFactor || tr.position.y > boundsFactor)
 			tr.Translate(-1*movement * speed / 400);
+			*/
 
 		updateEnergy (-1*(10.0f / 60.0f));
 
