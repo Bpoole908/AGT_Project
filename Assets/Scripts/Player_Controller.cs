@@ -77,7 +77,7 @@ public class Player_Controller : MonoBehaviour
 
 	}
 
-	void Update ()
+	void Update () 
 	{
 
 		if (Input.GetKeyDown (KeyCode.Space)) {
