@@ -89,7 +89,7 @@ public class Absorb_Script : MonoBehaviour
 
 
 			this.gameObject.GetComponent<Light> ().range = this.gameObject.transform.localScale.x*2;
-			print (this.gameObject.transform.localScale.x);
+
 			yield return null;
 		}
 

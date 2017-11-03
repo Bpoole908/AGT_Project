@@ -20,10 +20,18 @@ public class Entity : MonoBehaviour {
 		size = rend.bounds.size.x * rend.bounds.size.y;
 		float boundsFactor = gameController.GetComponent<Game_Controller>().planeSize.x*10/2f*0.7f;
 
-			if (transform.position.x < -1 * boundsFactor|| transform.position.x > boundsFactor)
-				transform.position = new Vector3(-1*transform.position.x,transform.position.y, transform.position.z);
-			else if(transform.position.y < -1*boundsFactor || transform.position.y > boundsFactor)
-				transform.position = new Vector3(transform.position.x,-1*transform.position.y, transform.position.z);
+		if (transform.position.x > boundsFactor) 
+			transform.position = new Vector3 (-1 * (transform.position.x - 1), transform.position.y, transform.position.z);
+		 else if (transform.position.x < -1 * boundsFactor) 
+			transform.position = new Vector3 (-1 * (transform.position.x + 1), transform.position.y, transform.position.z);
+		 else if (transform.position.y < -1 * boundsFactor) 
+			transform.position = new Vector3 (transform.position.x, -1 * (transform.position.y + 1), transform.position.z);
+		 else if (transform.position.y > boundsFactor) 
+			transform.position = new Vector3 (transform.position.x, -1 * (transform.position.y - 1), transform.position.z);
+	
+
+
+		
 		
 
 	}
