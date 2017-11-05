@@ -10954,6 +10954,11 @@ Transform:
   m_Father: {fileID: 450741874}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!198 &569853708 stripped
+ParticleSystem:
+  m_PrefabParentObject: {fileID: 198330283357984230, guid: 690d41fc792020545a9961183fc2288f,
+    type: 2}
+  m_PrefabInternal: {fileID: 1625372398}
 --- !u!1 &575603387
 GameObject:
   m_ObjectHideFlags: 0
@@ -11587,6 +11592,7 @@ MonoBehaviour:
   audio: {fileID: 0}
   energy: 0
   maxEnergy: 100
+  trail: {fileID: 569853708}
 --- !u!114 &742412012
 MonoBehaviour:
   m_ObjectHideFlags: 0

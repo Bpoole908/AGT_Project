@@ -21,8 +21,7 @@ public class Player_Controller : MonoBehaviour
 	public float energy;
 	public float maxEnergy;
 	private bool boosting;
-	//public GameObject energyText;
-	//public GameObject gameController;
+	public ParticleSystem trail;
 
 
 	// Use this for initialization
@@ -90,13 +89,20 @@ public class Player_Controller : MonoBehaviour
 
 			print("boosting");
 			boosting = true;
+			ParticleSystem.MainModule trailMain = trail.main;
+			trailMain.startColor = Color.green;
+
+
 		}
 
 		if (Input.GetKeyUp (KeyCode.Space)) {
 
 			print("stop boosting");
 			boosting = false;
+			ParticleSystem.MainModule trailMain = trail.main;
+			trailMain.startColor = Color.white;
 		}
+			
 
 
 	}
