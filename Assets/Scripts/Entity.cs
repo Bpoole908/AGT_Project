@@ -6,19 +6,19 @@ public class Entity : MonoBehaviour {
 
 	public Renderer rend;
 	[HideInInspector] public float size;
-	GameObject gameController;
+	//GameObject gameController;
 
 	// Use this for initialization
 	void Start () {
 		size = rend.bounds.size.x * rend.bounds.size.y;
-		gameController = GameObject.Find ("GameController");
+		//gameController = GameObject.Find ("GameController");
 	}
 
 	// Update is called once per frame
 	void Update () {
 		
 		size = rend.bounds.size.x * rend.bounds.size.y;
-		float boundsFactor = gameController.GetComponent<Game_Controller>().planeSize.x*10/2f*0.7f;
+		float boundsFactor = Game_Controller.instance.planeSize.x*10/2f*0.7f;
 		if (gameObject.tag == "Enemy" && (transform.position.x < -1 * boundsFactor || transform.position.x > boundsFactor || transform.position.y < -1 * boundsFactor || transform.position.y > boundsFactor))
 			transform.position = Vector3.zero;
 

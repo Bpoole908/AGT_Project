@@ -6,7 +6,7 @@ public class Absorb_Script : MonoBehaviour
 {
 
 	public GameObject background;
-	public GameObject gameController;
+	//public GameObject gameController;
 
 
 	// Use this for initialization
@@ -81,7 +81,7 @@ public class Absorb_Script : MonoBehaviour
 			if (this.gameObject.tag == "Player") {
 				
 				background.transform.localScale = Vector3.Lerp (background.transform.localScale, backgroundTarget, rateOfChange);
-				gameController.GetComponent<Game_Controller> ().planeSize = backgroundTarget;
+				Game_Controller.instance.planeSize = backgroundTarget;
 
 
 
