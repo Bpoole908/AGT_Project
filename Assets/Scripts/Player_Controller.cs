@@ -80,6 +80,9 @@ public class Player_Controller : MonoBehaviour
 	void Update ()
 	{
 
+		if (energy < 1)
+			Game_Controller.instance.GameOver ();
+
 		if (Input.GetKeyDown (KeyCode.Space)) {
 
 			print("boosting");

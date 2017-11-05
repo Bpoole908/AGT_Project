@@ -37,4 +37,11 @@ public class Game_Controller : MonoBehaviour {
 	void Update () {
 		planeSize = plane.transform.localScale;
 	}
+
+	public void GameOver(){
+
+		//code for what follows a game over
+		print("Game Over");
+	}
+
 }
