@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class Game_Controller : MonoBehaviour {
 
@@ -8,6 +10,7 @@ public class Game_Controller : MonoBehaviour {
 	//starts at 100x100
 	public Vector3 planeSize;
 	public GameObject plane;
+	public Text energyText;
 
 
 	void Awake(){
@@ -42,6 +45,9 @@ public class Game_Controller : MonoBehaviour {
 
 		//code for what follows a game over
 		print("Game Over");
+	}
+	public void UpdateEnergyUI(float e){
+		energyText.text = "Energy: " + e.ToString().Split('.')[0];
 	}
 
 }

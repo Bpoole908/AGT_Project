@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Player_Controller : MonoBehaviour
 {
 	/*
@@ -20,6 +21,7 @@ public class Player_Controller : MonoBehaviour
 	public float energy;
 	public float maxEnergy;
 	private bool boosting;
+	//public GameObject energyText;
 	//public GameObject gameController;
 
 
@@ -42,6 +44,7 @@ public class Player_Controller : MonoBehaviour
 
 		energy += change;
 		energy = Mathf.Clamp(energy, -1*Mathf.Infinity, maxEnergy);
+		Game_Controller.instance.UpdateEnergyUI (energy);
 		//print (energy);
 	}
 

@@ -220,7 +220,6 @@ MonoBehaviour:
   alertScale: 3
   chaseScale: 4
   plane: {fileID: 575603387}
-  gameController: {fileID: 0}
 --- !u!108 &43699293
 Light:
   m_ObjectHideFlags: 0
@@ -300,7 +299,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   background: {fileID: 0}
-  gameController: {fileID: 0}
 --- !u!114 &43699297
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3920,7 +3918,8 @@ RectTransform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
-  m_Children: []
+  m_Children:
+  - {fileID: 2126610951}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7352,7 +7351,6 @@ MonoBehaviour:
   alertScale: 3
   chaseScale: 4
   plane: {fileID: 575603387}
-  gameController: {fileID: 0}
 --- !u!108 &382449273
 Light:
   m_ObjectHideFlags: 0
@@ -7432,7 +7430,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   background: {fileID: 0}
-  gameController: {fileID: 0}
 --- !u!114 &382449277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11103,7 +11100,6 @@ MonoBehaviour:
   alertScale: 3
   chaseScale: 4
   plane: {fileID: 575603387}
-  gameController: {fileID: 0}
 --- !u!108 &596419710
 Light:
   m_ObjectHideFlags: 0
@@ -11183,7 +11179,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   background: {fileID: 0}
-  gameController: {fileID: 0}
 --- !u!114 &596419714
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11286,7 +11281,6 @@ MonoBehaviour:
   alertScale: 3
   chaseScale: 4
   plane: {fileID: 575603387}
-  gameController: {fileID: 0}
 --- !u!108 &644176440
 Light:
   m_ObjectHideFlags: 0
@@ -11366,7 +11360,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   background: {fileID: 0}
-  gameController: {fileID: 0}
 --- !u!114 &644176444
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11594,7 +11587,6 @@ MonoBehaviour:
   audio: {fileID: 0}
   energy: 0
   maxEnergy: 100
-  gameController: {fileID: 767367821}
 --- !u!114 &742412012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11607,7 +11599,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   background: {fileID: 575603387}
-  gameController: {fileID: 767367821}
 --- !u!82 &742412013
 AudioSource:
   m_ObjectHideFlags: 0
@@ -11717,6 +11708,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   planeSize: {x: 0, y: 0, z: 0}
   plane: {fileID: 575603387}
+  energyText: {fileID: 2126610952}
 --- !u!4 &767367823
 Transform:
   m_ObjectHideFlags: 0
@@ -11856,7 +11848,6 @@ MonoBehaviour:
   alertScale: 3
   chaseScale: 4
   plane: {fileID: 575603387}
-  gameController: {fileID: 0}
 --- !u!108 &1054751828
 Light:
   m_ObjectHideFlags: 0
@@ -11936,7 +11927,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   background: {fileID: 0}
-  gameController: {fileID: 0}
 --- !u!114 &1054751832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12039,7 +12029,6 @@ MonoBehaviour:
   alertScale: 3
   chaseScale: 4
   plane: {fileID: 575603387}
-  gameController: {fileID: 0}
 --- !u!108 &1096324754
 Light:
   m_ObjectHideFlags: 0
@@ -12119,7 +12108,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   background: {fileID: 0}
-  gameController: {fileID: 0}
 --- !u!114 &1096324758
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12274,7 +12262,6 @@ MonoBehaviour:
   alertScale: 3
   chaseScale: 4
   plane: {fileID: 575603387}
-  gameController: {fileID: 0}
 --- !u!108 &1298750712
 Light:
   m_ObjectHideFlags: 0
@@ -12354,7 +12341,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   background: {fileID: 0}
-  gameController: {fileID: 0}
 --- !u!114 &1298750716
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12671,7 +12657,6 @@ MonoBehaviour:
   alertScale: 3
   chaseScale: 4
   plane: {fileID: 575603387}
-  gameController: {fileID: 0}
 --- !u!108 &1902334103
 Light:
   m_ObjectHideFlags: 0
@@ -12751,7 +12736,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   background: {fileID: 0}
-  gameController: {fileID: 0}
 --- !u!114 &1902334107
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16178,3 +16162,77 @@ Transform:
   m_Father: {fileID: 450741874}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2126610950
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 2126610951}
+  - component: {fileID: 2126610953}
+  - component: {fileID: 2126610952}
+  m_Layer: 5
+  m_Name: EnergyText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2126610951
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2126610950}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 142968012}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -197, y: -282}
+  m_SizeDelta: {x: 228.6, y: 54}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2126610952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2126610950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 708705254, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+    m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
+      Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 30
+    m_FontStyle: 1
+    m_BestFit: 0
+    m_MinSize: 0
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: 'Energy: 0'
+--- !u!222 &2126610953
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2126610950}
