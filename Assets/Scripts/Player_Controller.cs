@@ -22,6 +22,8 @@ public class Player_Controller : MonoBehaviour
 	public float maxEnergy;
 	private bool boosting;
 	public ParticleSystem trail;
+	public Color defaultColor = new Color(1f, 1f, .66f);
+	public Color boostColor = new Color(1f, .5f, 0f);
 
 
 	// Use this for initialization
@@ -90,7 +92,9 @@ public class Player_Controller : MonoBehaviour
 			print("boosting");
 			boosting = true;
 			ParticleSystem.MainModule trailMain = trail.main;
-			trailMain.startColor = Color.green;
+			trailMain.startColor = boostColor;
+			ParticleSystem.EmissionModule emission = trail.emission;
+			emission.rateOverTime = 500;
 
 
 		}
@@ -100,7 +104,9 @@ public class Player_Controller : MonoBehaviour
 			print("stop boosting");
 			boosting = false;
 			ParticleSystem.MainModule trailMain = trail.main;
-			trailMain.startColor = Color.white;
+			trailMain.startColor = defaultColor;
+			ParticleSystem.EmissionModule emission = trail.emission;
+			emission.rateOverTime = 50;
 		}
 			
 
