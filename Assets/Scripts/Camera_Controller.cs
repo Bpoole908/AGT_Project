@@ -7,6 +7,7 @@ public class Camera_Controller : MonoBehaviour {
 	private Vector3 offset, camAdjust;
 	private float oldSize;
 	public Camera thisCamera;
+	public int startingCameraSize;
 
 	// Use this for initialization
 	void Start () {
@@ -19,7 +20,7 @@ public class Camera_Controller : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		thisCamera.orthographicSize = 4 + player.transform.localScale.x;
+		thisCamera.orthographicSize = startingCameraSize + player.transform.localScale.x;
 		transform.position = player.transform.position + offset;
 		thisCamera.nearClipPlane = -14 - player.transform.localScale.x;
 		thisCamera.farClipPlane = 14 + player.transform.localScale.x;

@@ -21,9 +21,11 @@ public class Player_Controller : MonoBehaviour
 	public float energy;
 	public float maxEnergy;
 	private bool boosting;
+	public float energyLostPerSec;
 	public ParticleSystem trail;
 	public Color defaultColor = new Color(1f, 1f, .66f);
 	public Color boostColor = new Color(1f, .5f, 0f);
+	private const float FRAME_RATE = 60f;
 
 
 	// Use this for initialization
@@ -43,8 +45,8 @@ public class Player_Controller : MonoBehaviour
 
 	public void updateEnergy(float change){
 
-		energy += change;
-		energy = Mathf.Clamp(energy, -1*Mathf.Infinity, maxEnergy);
+		energy -= change;
+		energy = Mathf.Clamp(energy, 0, maxEnergy);
 		Game_Controller.instance.UpdateEnergyUI (energy);
 		//print (energy);
 	}
@@ -77,7 +79,7 @@ public class Player_Controller : MonoBehaviour
 		if (tr.position.x < -1*boundsFactor || tr.position.x > boundsFactor || tr.position.y < -1*boundsFactor || tr.position.y > boundsFactor)
 			tr.Translate(-1*movement * speed / 400);
 
-		updateEnergy (-1*(10.0f / 60.0f));
+		updateEnergy (energyLostPerSec / FRAME_RATE); //Read this as energyLost per second, system is set to 60fps, do not alter the FRAME_RATE value. Adjust energyLostPerSec in the inspector.
 
 	}
 

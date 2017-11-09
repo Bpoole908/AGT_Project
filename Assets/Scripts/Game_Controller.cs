@@ -31,12 +31,10 @@ public class Game_Controller : MonoBehaviour {
 
 	}
 
-	// Use this for initialization
 	void Start () {
 		planeSize = plane.transform.localScale;
 	}
-	
-	// Update is called once per frame
+
 	void Update () {
 		planeSize = plane.transform.localScale;
 	}

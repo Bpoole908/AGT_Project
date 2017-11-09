@@ -61,12 +61,16 @@ public class Absorb_Script : MonoBehaviour
 			backgroundTarget = background.transform.localScale + new Vector3 (deltaScale + 0.5f, deltaScale + 0.5f, deltaScale + 0.5f);
 
 			//maybe replace this with some math later
-			if(deltaScale < 1.2)
-				this.gameObject.GetComponent<Player_Controller> ().updateEnergy (10f);
+			if(deltaScale < 1.1f)
+				this.gameObject.GetComponent<Player_Controller> ().updateEnergy (-20f);
+			else if(deltaScale < 1.2f)
+				this.gameObject.GetComponent<Player_Controller> ().updateEnergy (-40f);
+			else if(deltaScale < 1.3f)
+				this.gameObject.GetComponent<Player_Controller> ().updateEnergy (-60f);
 			else if(deltaScale < 1.4f)
-				this.gameObject.GetComponent<Player_Controller> ().updateEnergy (50f);
+				this.gameObject.GetComponent<Player_Controller> ().updateEnergy (-80f);
 			else
-				this.gameObject.GetComponent<Player_Controller> ().updateEnergy (100f);
+				this.gameObject.GetComponent<Player_Controller> ().updateEnergy (-100f);
 				
 		}
 		
