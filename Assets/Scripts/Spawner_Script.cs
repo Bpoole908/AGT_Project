@@ -12,7 +12,8 @@ public class Spawner_Script : MonoBehaviour {
 	public GameObject enemyPrefab;
 	public GameObject[] bounds;
 	GameObject enemyClone;
-	// Use this for initialization
+	public GameObject player;
+
 	void Start () {
 		
 		InvokeRepeating ("spawnEnemy", startDelay, spawnRate);
@@ -29,10 +30,15 @@ public class Spawner_Script : MonoBehaviour {
 
 	}
 	void spawnEnemy(){
-
+		float scale;
 		if (enemyList.Count < maxEnemies) {
 			enemyClone = Instantiate (enemyPrefab, getRandomV3 (), Quaternion.identity) as GameObject;
-			float scale = Random.Range (0.5f, 3.0f);
+			if (GetIsSmallerEnemyInList() == false) {
+				scale = player.transform.localScale.x * .75f;
+				Debug.Log (scale);
+			} else {
+				scale = Random.Range (0.5f, 3.0f);
+			}
 			enemyClone.transform.localScale = new Vector3 (scale, scale, scale);
 			enemyList.Add (enemyClone);
 		}
@@ -69,5 +75,15 @@ public class Spawner_Script : MonoBehaviour {
 		}
 
 		return rv;
+	}
+
+	bool GetIsSmallerEnemyInList(){
+		bool result = false;
+		//search the list, if the player is larger than any enemyClone, then there is a smaller enemy in the list.
+		foreach(GameObject enemyClone in enemyList){
+			if (player.transform.localScale.x > enemyClone.transform.localScale.x)
+				result = true;
+		}
+		return result;
 	}
 }

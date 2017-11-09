@@ -12213,10 +12213,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyList: []
-  maxEnemies: 5
+  maxEnemies: 10
   background: {fileID: 575603387}
   spawnRate: 2
-  startDelay: 1
+  startDelay: 0
   enemyPrefab: {fileID: 1592729924375498, guid: b3b5661550e212241a74b7191690f3fc,
     type: 2}
   bounds:
@@ -12224,6 +12224,7 @@ MonoBehaviour:
   - {fileID: 215272509}
   - {fileID: 45156021}
   - {fileID: 1953587196}
+  player: {fileID: 742412003}
 --- !u!1 &1298750710
 GameObject:
   m_ObjectHideFlags: 0

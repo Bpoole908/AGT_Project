@@ -33,7 +33,7 @@ public class AI : MonoBehaviour {
 		enemy = alertSphere (this.transform.position, alertRadius);
 		prey = chaseSphere (this.transform.position, chaseRadius);
 		stateMachine.Update();
-		Debug.Log (stateMachine.currentState);
+		//Debug.Log (stateMachine.currentState);
 	
 	}
 
