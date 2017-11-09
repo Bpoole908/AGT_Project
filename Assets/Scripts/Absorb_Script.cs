@@ -62,7 +62,7 @@ public class Absorb_Script : MonoBehaviour
 
 			//maybe replace this with some math later
 			if(deltaScale < 1.1f)
-				this.gameObject.GetComponent<Player_Controller> ().updateEnergy (-20f);
+				this.gameObject.GetComponent<Player_Controller> ().updateEnergy (-20f); //using negative values because energy formula is energy -= updateEnergy(value).
 			else if(deltaScale < 1.2f)
 				this.gameObject.GetComponent<Player_Controller> ().updateEnergy (-40f);
 			else if(deltaScale < 1.3f)

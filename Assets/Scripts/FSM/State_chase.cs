@@ -54,7 +54,7 @@ public class State_chase : State<AI> {
 	}
 	public void chase(AI owner){
 		float timeToTarget = .4f;
-		float maxSpeed = 30f * (1 / owner.transform.localScale.x);
+		float maxSpeed = 15.75f * (1 / owner.transform.localScale.x);
 		Rigidbody rb = owner.GetComponent<Rigidbody> ();
 		Vector3 towards =  owner.prey.position - owner.transform.position;
 

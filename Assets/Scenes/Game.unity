@@ -11592,7 +11592,7 @@ MonoBehaviour:
   audio: {fileID: 0}
   energy: 0
   maxEnergy: 100
-  energyLostPerSec: 10
+  energyLostPerSec: 5
   trail: {fileID: 569853708}
   defaultColor: {r: 1, g: 1, b: 0.66, a: 1}
   boostColor: {r: 1, g: 0.5, b: 0, a: 1}
