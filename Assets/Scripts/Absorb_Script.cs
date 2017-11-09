@@ -7,13 +7,6 @@ public class Absorb_Script : MonoBehaviour
 
 	public GameObject background;
 	//public GameObject gameController;
-
-
-	// Use this for initialization
-	void Start ()
-	{
-		
-	}
 		
 	void OnCollisionEnter (Collision col)
 	{
@@ -41,11 +34,6 @@ public class Absorb_Script : MonoBehaviour
 				//what should we do if they're the same size?
 			}
 		}
-	}
-	// Update is called once per frame
-	void Update ()
-	{
-
 	}
 
 	IEnumerator sizeInc (Transform source, float bigger, float smaller)

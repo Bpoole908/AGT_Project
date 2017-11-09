@@ -37,7 +37,7 @@ public class Spawner_Script : MonoBehaviour {
 				scale = player.transform.localScale.x * .75f;
 				Debug.Log (scale);
 			} else {
-				scale = Random.Range (0.5f, 3.0f);
+				scale = Random.Range (0.5f, 6.0f);
 			}
 			enemyClone.transform.localScale = new Vector3 (scale, scale, scale);
 			enemyList.Add (enemyClone);

@@ -25,8 +25,8 @@ public class AI : MonoBehaviour {
 		stateMachine.ChangeState (State_idle.Instance);
 		plane = GameObject.Find("Plane");
 		//gameController = GameObject.Find ("GameController");
-		alertRadius = this.transform.localScale.x + alertScale;
-		chaseRadius = this.transform.localScale.x + chaseScale;
+		alertRadius = this.transform.localScale.x * 2f + alertScale;
+		chaseRadius = this.transform.localScale.x * 2f + chaseScale;
 	}
 	private void Update()
 	{
@@ -47,7 +47,6 @@ public class AI : MonoBehaviour {
 	public Transform alertSphere(Vector3 center, float radius) {
 		Transform largest = this.transform;
 		Collider[] inAlterSphere = Physics.OverlapSphere (center, radius);
-
 		if (inAlterSphere.Length > 0) {
 			foreach(Collider obj in inAlterSphere) {
 				if (obj.gameObject != null && !obj.CompareTag("Bounds")) {
@@ -77,7 +76,7 @@ public class AI : MonoBehaviour {
 			foreach(Collider obj in inAlterSphere) {
 				if (obj.gameObject != null && !obj.CompareTag("Bounds")) {
 					if (obj.CompareTag("Player") && localSize.GetComponent<Entity>().size > obj.GetComponent<Entity>().size) {
-						Debug.Log (obj.transform);
+						//Debug.Log (obj.transform);
 						return obj.transform;
 					}
 				}

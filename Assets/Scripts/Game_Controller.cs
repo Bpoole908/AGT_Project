@@ -10,7 +10,7 @@ public class Game_Controller : MonoBehaviour {
 	//starts at 100x100
 	public Vector3 planeSize;
 	public GameObject plane;
-	public Text energyText;
+	public Slider energyBar;
 
 
 	void Awake(){
@@ -45,7 +45,7 @@ public class Game_Controller : MonoBehaviour {
 		print("Game Over");
 	}
 	public void UpdateEnergyUI(float e){
-		energyText.text = "Energy: " + e.ToString().Split('.')[0];
+		energyBar.value = e;
 	}
 
 }
