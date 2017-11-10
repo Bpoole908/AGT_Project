@@ -11,30 +11,11 @@ public class Absorb_Script : MonoBehaviour
 		
 	void OnCollisionEnter (Collision col)
 	{
-
-		if (col.gameObject.tag == "Bounds" && this.gameObject.tag == "Player")
-			print ("Hit bounds");
-
-		if (col.gameObject.tag != "Bounds") {
-			float thisSize = this.gameObject.GetComponent<Entity> ().size;
-			float colSize = col.gameObject.GetComponent<Entity> ().size;
-
-			if (thisSize > colSize) {
-				col.gameObject.SetActive (false);
-				col.gameObject.GetComponent<Entity> ().removeSelfFromList ();
-				StartCoroutine (this.sizeInc (this.transform, thisSize, colSize));
-
-
-				//plays the consume sound only if it was the player that got bigger
-				if (this.gameObject.tag == "Player") {
-					this.gameObject.GetComponent<Player_Controller> ().audio.Play ();
-				}
-
-
-
-			} else {
-				//what should we do if they're the same size?
-			}
+		if (this.gameObject.tag == "Enemy" && col.gameObject.tag == "Player") {
+			Consume (col);
+		}
+		else if (this.gameObject.tag == "Player"){
+			Consume (col);
 		}
 	}
 
@@ -90,7 +71,32 @@ public class Absorb_Script : MonoBehaviour
 			//print (this.gameObject.transform.localScale.x);
 			yield return null;
 		}
-
 	}
 
+	void Consume(Collision col){
+		if (col.gameObject.tag == "Bounds" && this.gameObject.tag == "Player")
+			print ("Hit bounds");
+
+		if (col.gameObject.tag != "Bounds") {
+			float thisSize = this.gameObject.GetComponent<Entity> ().size;
+			float colSize = col.gameObject.GetComponent<Entity> ().size;
+
+			if (thisSize > colSize) {
+				col.gameObject.SetActive (false);
+				col.gameObject.GetComponent<Entity> ().removeSelfFromList ();
+				StartCoroutine (this.sizeInc (this.transform, thisSize, colSize));
+
+
+				//plays the consume sound only if it was the player that got bigger
+				if (this.gameObject.tag == "Player") {
+					this.gameObject.GetComponent<Player_Controller> ().audio.Play ();
+				}
+
+
+
+			} else {
+				//what should we do if they're the same size?
+			}
+		}
+	}
 }
