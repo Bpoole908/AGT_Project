@@ -6,6 +6,7 @@ public class Absorb_Script : MonoBehaviour
 {
 
 	public GameObject background;
+	public ParticleSystem trail;
 	//public GameObject gameController;
 		
 	void OnCollisionEnter (Collision col)
@@ -22,6 +23,7 @@ public class Absorb_Script : MonoBehaviour
 				col.gameObject.SetActive (false);
 				col.gameObject.GetComponent<Entity> ().removeSelfFromList ();
 				StartCoroutine (this.sizeInc (this.transform, thisSize, colSize));
+
 
 				//plays the consume sound only if it was the player that got bigger
 				if (this.gameObject.tag == "Player") {
@@ -59,6 +61,9 @@ public class Absorb_Script : MonoBehaviour
 				this.gameObject.GetComponent<Player_Controller> ().updateEnergy (-80f);
 			else
 				this.gameObject.GetComponent<Player_Controller> ().updateEnergy (-100f);
+
+			ParticleSystem.ShapeModule trailShape = trail.shape; 
+			trailShape.radius *= deltaScale;
 				
 		}
 		
@@ -81,6 +86,7 @@ public class Absorb_Script : MonoBehaviour
 
 
 			this.gameObject.GetComponent<Light> ().range = this.gameObject.transform.localScale.x*2;
+
 			//print (this.gameObject.transform.localScale.x);
 			yield return null;
 		}

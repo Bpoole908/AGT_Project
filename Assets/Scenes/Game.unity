@@ -299,6 +299,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   background: {fileID: 0}
+  trail: {fileID: 0}
 --- !u!114 &43699297
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7465,6 +7466,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   background: {fileID: 0}
+  trail: {fileID: 0}
 --- !u!114 &382449277
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10891,7 +10893,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &450741874
 Transform:
   m_ObjectHideFlags: 0
@@ -11219,6 +11221,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   background: {fileID: 0}
+  trail: {fileID: 0}
 --- !u!114 &596419714
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11400,6 +11403,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   background: {fileID: 0}
+  trail: {fileID: 0}
 --- !u!114 &644176444
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11646,6 +11650,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   background: {fileID: 575603387}
+  trail: {fileID: 569853708}
 --- !u!82 &742412013
 AudioSource:
   m_ObjectHideFlags: 0
@@ -12043,6 +12048,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   background: {fileID: 0}
+  trail: {fileID: 0}
 --- !u!114 &1054751832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12224,6 +12230,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   background: {fileID: 0}
+  trail: {fileID: 0}
 --- !u!114 &1096324758
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12526,6 +12533,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   background: {fileID: 0}
+  trail: {fileID: 0}
 --- !u!114 &1298750716
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12787,7 +12795,7 @@ Prefab:
     - target: {fileID: 198330283357984230, guid: 690d41fc792020545a9961183fc2288f,
         type: 2}
       propertyPath: randomSeed
-      value: 1173021437
+      value: 1514996749
       objectReference: {fileID: 0}
     - target: {fileID: 198330283357984230, guid: 690d41fc792020545a9961183fc2288f,
         type: 2}
@@ -12977,17 +12985,22 @@ Prefab:
     - target: {fileID: 198330283357984230, guid: 690d41fc792020545a9961183fc2288f,
         type: 2}
       propertyPath: ShapeModule.radiusThickness
-      value: 1.0000
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 198330283357984230, guid: 690d41fc792020545a9961183fc2288f,
         type: 2}
       propertyPath: ShapeModule.radiusThickness
-      value: 1.0000
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 198330283357984230, guid: 690d41fc792020545a9961183fc2288f,
         type: 2}
       propertyPath: ShapeModule.radiusThickness
-      value: 1.0000
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198330283357984230, guid: 690d41fc792020545a9961183fc2288f,
+        type: 2}
+      propertyPath: ShapeModule.radius.value
+      value: 0.16666667
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 690d41fc792020545a9961183fc2288f, type: 2}
@@ -13216,6 +13229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   background: {fileID: 0}
+  trail: {fileID: 0}
 --- !u!114 &1902334107
 MonoBehaviour:
   m_ObjectHideFlags: 0
