@@ -11626,11 +11626,14 @@ MonoBehaviour:
   speed: 100
   audio: {fileID: 0}
   energy: 0
+  boostEnergyMultiplier: 4
   maxEnergy: 100
   energyLostPerSec: 5
   trail: {fileID: 569853708}
   defaultColor: {r: 1, g: 1, b: 0.66, a: 1}
   boostColor: {r: 1, g: 0.5, b: 0, a: 1}
+  energyBarColor: {r: 1, g: 0.525, b: 0, a: 1}
+  energyBarBoostColor: {r: 1, g: 0, b: 0, a: 1}
 --- !u!114 &742412012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11753,6 +11756,7 @@ MonoBehaviour:
   planeSize: {x: 0, y: 0, z: 0}
   plane: {fileID: 575603387}
   energyBar: {fileID: 1737633345}
+  energyBarFill: {fileID: 914673586}
 --- !u!4 &767367823
 Transform:
   m_ObjectHideFlags: 0

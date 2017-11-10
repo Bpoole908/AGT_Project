@@ -11,6 +11,7 @@ public class Game_Controller : MonoBehaviour {
 	public Vector3 planeSize;
 	public GameObject plane;
 	public Slider energyBar;
+	public GameObject energyBarFill;
 
 
 	void Awake(){
@@ -46,6 +47,10 @@ public class Game_Controller : MonoBehaviour {
 	}
 	public void UpdateEnergyUI(float e){
 		energyBar.value = e;
+	}
+
+	public void ChangeEnergyBarColor(Color c){
+		energyBarFill.GetComponent<Image> ().color = c;
 	}
 
 }

@@ -19,12 +19,15 @@ public class Player_Controller : MonoBehaviour
 	[HideInInspector]public AudioSource audio;
 	private float oldSize;
 	public float energy;
+	public float boostEnergyMultiplier;
 	public float maxEnergy;
 	private bool boosting;
 	public float energyLostPerSec;
 	public ParticleSystem trail;
 	public Color defaultColor = new Color(1f, 1f, .66f);
 	public Color boostColor = new Color(1f, .5f, 0f);
+	public Color energyBarColor = new Color(1f, .5f, 0f);
+	public Color energyBarBoostColor = new Color(1f, 0f, 0f);
 	private const float FRAME_RATE = 60f;
 
 
@@ -63,14 +66,19 @@ public class Player_Controller : MonoBehaviour
 
 
 		if (!boosting) {
-
+			Game_Controller.instance.ChangeEnergyBarColor (energyBarColor);
 			speed = (70 - GetComponent<Entity> ().size);
 			if (speed > maxSpeed)
 				speed = maxSpeed;
 			else if (speed < minSpeed)
 				speed = minSpeed;
+			updateEnergy (energyLostPerSec / FRAME_RATE); //Read this as energyLost per second, system is set to 60fps, do not alter the FRAME_RATE value. Adjust energyLostPerSec in the inspector.
+
 		} else {
 			speed = (70 - GetComponent<Entity> ().size) + boostSpeed;
+			Game_Controller.instance.ChangeEnergyBarColor (energyBarBoostColor);
+			updateEnergy (energyLostPerSec*boostEnergyMultiplier / FRAME_RATE); //Read this as energyLost per second, system is set to 60fps, do not alter the FRAME_RATE value. Adjust energyLostPerSec in the inspector.
+
 		}
 		//print (tr.position.x);
 
@@ -79,7 +87,7 @@ public class Player_Controller : MonoBehaviour
 		if (tr.position.x < -1*boundsFactor || tr.position.x > boundsFactor || tr.position.y < -1*boundsFactor || tr.position.y > boundsFactor)
 			tr.Translate(-1*movement * speed / 400);
 
-		updateEnergy (energyLostPerSec / FRAME_RATE); //Read this as energyLost per second, system is set to 60fps, do not alter the FRAME_RATE value. Adjust energyLostPerSec in the inspector.
+
 
 	}
 
