@@ -27,6 +27,12 @@ public class Absorb_Script : MonoBehaviour
 				if (this.gameObject.tag == "Player") {
 					this.gameObject.GetComponent<Player_Controller> ().audio.Play ();
 				}
+				//cause slow motion only if it was the player that absorbed.
+				if (this.gameObject.tag == "Player") {
+					GameObject timeManager = GameObject.Find ("TimeManager");
+					TimeManager slowMotion = timeManager.GetComponent<TimeManager> ();
+					slowMotion.DoSlowMotion ();
+				}
 
 
 
