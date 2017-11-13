@@ -33,10 +33,14 @@ public class Spawner_Script : MonoBehaviour {
 		float scale;
 		if (enemyList.Count < maxEnemies) {
 			enemyClone = Instantiate (enemyPrefab, getRandomV3 (), Quaternion.identity) as GameObject;
-			if (GetIsSmallerEnemyInList() == false) {
+			if (GetIsSmallerEnemyInList () == false) {
 				scale = player.transform.localScale.x * .75f;
 				Debug.Log (scale);
-			} else {
+			} else if (GetIsLargerEnemyInList () == false) {
+				scale = player.transform.localScale.x * 1.25f;
+				Debug.Log (scale);
+			}
+			else{
 				scale = Random.Range (0.5f, 6.0f);
 			}
 			enemyClone.transform.localScale = new Vector3 (scale, scale, scale);
@@ -82,6 +86,16 @@ public class Spawner_Script : MonoBehaviour {
 		//search the list, if the player is larger than any enemyClone, then there is a smaller enemy in the list.
 		foreach(GameObject enemyClone in enemyList){
 			if (player.transform.localScale.x > enemyClone.transform.localScale.x)
+				result = true;
+		}
+		return result;
+	}
+
+	bool GetIsLargerEnemyInList(){
+		bool result = false;
+		//search the list, if the player is larger than any enemyClone, then there is a smaller enemy in the list.
+		foreach(GameObject enemyClone in enemyList){
+			if (player.transform.localScale.x < enemyClone.transform.localScale.x)
 				result = true;
 		}
 		return result;
