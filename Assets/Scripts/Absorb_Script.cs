@@ -30,6 +30,7 @@ public class Absorb_Script : MonoBehaviour
 		Vector3 backgroundTarget = Vector3.zero;
 		if (this.gameObject.tag == "Player") {
 			backgroundTarget = background.transform.localScale + new Vector3 (deltaScale + 0.5f, deltaScale + 0.5f, deltaScale + 0.5f);
+			this.gameObject.GetComponent<Player_Controller> ().isScaling = true;
 
 			//maybe replace this with some math later
 			if(deltaScale < 1.1f)
@@ -67,6 +68,8 @@ public class Absorb_Script : MonoBehaviour
 
 
 			this.gameObject.GetComponent<Light> ().range = this.gameObject.transform.localScale.x*2;
+			if(this.gameObject.tag == "Player")
+				this.gameObject.GetComponent<Player_Controller> ().isScaling = false;
 
 			//print (this.gameObject.transform.localScale.x);
 			yield return null;

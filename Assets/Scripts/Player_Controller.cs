@@ -29,6 +29,7 @@ public class Player_Controller : MonoBehaviour
 	public Color energyBarColor = new Color(1f, .5f, 0f);
 	public Color energyBarBoostColor = new Color(1f, 0f, 0f);
 	private const float FRAME_RATE = 60f;
+	[HideInInspector]public bool isScaling;
 
 
 	// Use this for initialization
@@ -40,6 +41,8 @@ public class Player_Controller : MonoBehaviour
 		oldSize = 0.0f;
 		boosting = false;
 		energy = maxEnergy;
+		isScaling = false;
+
 	}
 	/// <summary>
 	/// Updates the energy. Pass it a value for the percentage to update it by, positive or negative.
@@ -57,47 +60,25 @@ public class Player_Controller : MonoBehaviour
 
 	void FixedUpdate ()
 	{
+
+		if (energy < 1)
+			Game_Controller.instance.GameOver ();
+		
 		float moveHor = Input.GetAxis ("Horizontal");
 		float moveVer = Input.GetAxis ("Vertical");
 
 		Vector3 movement = new Vector3 (moveHor, moveVer, 0.0f);
 
-		if (energy < 1)
-			Game_Controller.instance.GameOver ();
-
-		if (Input.GetKeyDown (KeyCode.Space)) {
-
-			print("boosting");
-			boosting = true;
-			ParticleSystem.MainModule trailMain = trail.main;
-			trailMain.startColor = boostColor;
-			ParticleSystem.EmissionModule emission = trail.emission;
-			emission.rateOverTime = 500;
-
-
-		}
-
-		if (Input.GetKeyUp (KeyCode.Space)) {
-
-			print("stop boosting");
-			boosting = false;
-			ParticleSystem.MainModule trailMain = trail.main;
-			trailMain.startColor = defaultColor;
-			ParticleSystem.EmissionModule emission = trail.emission;
-			emission.rateOverTime = 50;
-		}
 
 
 
-
-
-			Game_Controller.instance.ChangeEnergyBarColor (energyBarColor);
-			speed = (70 - GetComponent<Entity> ().size);
-			if (speed > maxSpeed)
-				speed = maxSpeed;
-			else if (speed < minSpeed)
-				speed = minSpeed;
-			updateEnergy (energyLostPerSec / FRAME_RATE); //Read this as energyLost per second, system is set to 60fps, do not alter the FRAME_RATE value. Adjust energyLostPerSec in the inspector.
+		Game_Controller.instance.ChangeEnergyBarColor (energyBarColor);
+		speed = (70 - GetComponent<Entity> ().size);
+		if (speed > maxSpeed)
+			speed = maxSpeed;
+		else if (speed < minSpeed)
+			speed = minSpeed;
+		updateEnergy (energyLostPerSec / FRAME_RATE); //Read this as energyLost per second, system is set to 60fps, do not alter the FRAME_RATE value. Adjust energyLostPerSec in the inspector.
 
 
 		if(boosting){
@@ -117,10 +98,37 @@ public class Player_Controller : MonoBehaviour
 
 	}
 
+	void RunMovement(){
+
+
+
+
+	}
+
 	void Update ()
 	{
 
+		if (Input.GetKeyDown (KeyCode.Space)) {
 
+			//print("boosting");
+			boosting = true;
+			ParticleSystem.MainModule trailMain = trail.main;
+			trailMain.startColor = boostColor;
+			ParticleSystem.EmissionModule emission = trail.emission;
+			emission.rateOverTime = 500;
+
+
+		}
+
+		if (Input.GetKeyUp (KeyCode.Space)) {
+
+			//print("stop boosting");
+			boosting = false;
+			ParticleSystem.MainModule trailMain = trail.main;
+			trailMain.startColor = defaultColor;
+			ParticleSystem.EmissionModule emission = trail.emission;
+			emission.rateOverTime = 50;
+		}
 			
 
 
