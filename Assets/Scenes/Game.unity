@@ -10893,7 +10893,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &450741874
 Transform:
   m_ObjectHideFlags: 0
@@ -11625,7 +11625,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minSpeed: 30
-  maxSpeed: 100
+  maxSpeed: 200
   boostSpeed: 50
   speed: 100
   audio: {fileID: 0}
