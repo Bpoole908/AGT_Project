@@ -11839,6 +11839,8 @@ MonoBehaviour:
   plane: {fileID: 575603387}
   energyBar: {fileID: 1737633345}
   energyBarFill: {fileID: 914673586}
+  gameOverText: {fileID: 1233477523}
+  restartButton: {fileID: 1033958221}
 --- !u!4 &767367823
 Transform:
   m_ObjectHideFlags: 0

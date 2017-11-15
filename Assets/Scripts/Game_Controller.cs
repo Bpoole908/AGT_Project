@@ -13,7 +13,7 @@ public class Game_Controller : MonoBehaviour {
 	public GameObject plane;
 	public Slider energyBar;
 	public GameObject energyBarFill;
-	public GameObject gameOverText;
+	public Text gameOverText;
 	public GameObject restartButton;
 
 
@@ -32,9 +32,9 @@ public class Game_Controller : MonoBehaviour {
 
 		//Sets this to not be destroyed when reloading scene. Commented out because of errors when restarting game
 		//DontDestroyOnLoad(gameObject);
-		gameOverText.SetActive(false);
+		//gameOverText.SetActive(false);
 		restartButton.SetActive(false);
-
+		gameOverText.CrossFadeAlpha(0.0f, 0.01f, false);
 
 
 	}
@@ -51,8 +51,11 @@ public class Game_Controller : MonoBehaviour {
 
 		//code for what follows a game over
 		print("Game Over");
-		gameOverText.SetActive(true);
+		//gameOverText.SetActive(true);
 		restartButton.SetActive(true);
+
+		gameOverText.CrossFadeAlpha(1.0f, 3.0f, false);
+
 
 
 	}
@@ -67,5 +70,7 @@ public class Game_Controller : MonoBehaviour {
 		
 		SceneManager.LoadScene ("Game");
 	}
+
+
 
 }
