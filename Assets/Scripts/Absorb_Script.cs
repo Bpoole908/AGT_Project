@@ -44,9 +44,7 @@ public class Absorb_Script : MonoBehaviour
 			else
 				this.gameObject.GetComponent<Player_Controller> ().updateEnergy (-100f);
 
-			ParticleSystem.ShapeModule trailShape = trail.shape; 
-			trailShape.radius *= deltaScale;
-				
+
 		}
 		
 		//this.gameObject.GetComponent<Light> ().range += deltaScale*2;
@@ -68,8 +66,15 @@ public class Absorb_Script : MonoBehaviour
 
 
 			this.gameObject.GetComponent<Light> ().range = this.gameObject.transform.localScale.x*2;
-			if(this.gameObject.tag == "Player")
+
+			if (this.gameObject.tag == "Player") {
 				this.gameObject.GetComponent<Player_Controller> ().isScaling = false;
+				ParticleSystem.ShapeModule trailShape = trail.shape; 
+				trailShape.radius = (this.gameObject.transform.localScale.x + 1)/10f;
+				if (trailShape.radius > 0.68f)
+					trailShape.radius = 0.68f;
+
+			}
 
 			//print (this.gameObject.transform.localScale.x);
 			yield return null;
