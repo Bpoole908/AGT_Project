@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 public class Game_Controller : MonoBehaviour {
@@ -27,8 +28,10 @@ public class Game_Controller : MonoBehaviour {
 			//Then destroy this. This enforces our singleton pattern, meaning there can only ever be one instance of a GameManager.
 			Destroy(gameObject);    
 
-		//Sets this to not be destroyed when reloading scene
-		DontDestroyOnLoad(gameObject);
+		//Sets this to not be destroyed when reloading scene. Commented out because of errors when restarting game
+		//DontDestroyOnLoad(gameObject);
+
+
 
 	}
 
@@ -51,6 +54,10 @@ public class Game_Controller : MonoBehaviour {
 
 	public void ChangeEnergyBarColor(Color c){
 		energyBarFill.GetComponent<Image> ().color = c;
+	}
+	public void Restart(){
+		
+		SceneManager.LoadScene ("Game");
 	}
 
 }
