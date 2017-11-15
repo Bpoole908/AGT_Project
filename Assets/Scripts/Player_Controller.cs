@@ -68,7 +68,7 @@ public class Player_Controller : MonoBehaviour
 		float moveVer = Input.GetAxis ("Vertical");
 
 		Vector3 movement = new Vector3 (moveHor, moveVer, 0.0f);
-		print (movement);
+		//print (movement);
 
 
 

@@ -53,8 +53,8 @@ public class Game_Controller : MonoBehaviour {
 		print("Game Over");
 		//gameOverText.SetActive(true);
 		restartButton.SetActive(true);
+		StartCoroutine (WaitAndFadeText(1,gameOverText));
 
-		gameOverText.CrossFadeAlpha(1.0f, 3.0f, false);
 
 
 
@@ -70,7 +70,24 @@ public class Game_Controller : MonoBehaviour {
 		
 		SceneManager.LoadScene ("Game");
 	}
+	public void FadeTextIn(Text t){
+		t.CrossFadeAlpha(1.0f, 3.0f, false);
+	}
 
+
+	/// <summary>
+	/// Wait for s seconds and then fade in text t.
+	/// </summary>
+	/// <returns>The and fade text.</returns>
+	/// <param name="s">Seconds to wait</param>
+	/// <param name="t">Text to fade in</param>
+	IEnumerator WaitAndFadeText(int s, Text t)
+	{
+		print("T1: " + Time.time);
+		yield return new WaitForSeconds(s);
+		FadeTextIn (t);
+		print("T2: " + Time.time);
+	}
 
 
 }
