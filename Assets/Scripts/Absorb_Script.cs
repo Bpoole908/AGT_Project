@@ -98,12 +98,14 @@ public class Absorb_Script : MonoBehaviour
 				//plays the consume sound only if it was the player that got bigger
 				if (this.gameObject.tag == "Player") {
 					this.gameObject.GetComponent<Player_Controller> ().audio.Play ();
+				} else {
+					Game_Controller.instance.GameOver ();
 				}
 
 
 
 			} else {
-				Game_Controller.instance.GameOver ();
+				//What do if same size?
 			}
 		}
 	}

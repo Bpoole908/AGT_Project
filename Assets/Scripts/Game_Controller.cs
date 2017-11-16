@@ -15,6 +15,7 @@ public class Game_Controller : MonoBehaviour {
 	public GameObject energyBarFill;
 	public Text gameOverText;
 	public GameObject restartButton;
+	//private bool 
 
 
 	void Awake(){
