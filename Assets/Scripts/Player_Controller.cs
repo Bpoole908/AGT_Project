@@ -73,6 +73,24 @@ public class Player_Controller : MonoBehaviour
 			//ParticleSystem.MainModule deathMain
 			Game_Controller.instance.GameOver ();
 		}
+		switch((int)transform.localScale.x){
+		case 1:
+			Game_Controller.instance.UpdateMilestoneUI (0);
+			break;
+		case 5:
+			Game_Controller.instance.UpdateMilestoneUI (1);
+			break;
+		case 10:
+			Game_Controller.instance.UpdateMilestoneUI (2);
+			break;
+		case 15:
+			Game_Controller.instance.UpdateMilestoneUI (3);
+			break;
+		case 20:
+			Game_Controller.instance.UpdateMilestoneUI (4);
+			Game_Controller.instance.Win ();
+			break;
+		}
 		
 		float moveHor = Input.GetAxis ("Horizontal");
 		float moveVer = Input.GetAxis ("Vertical");

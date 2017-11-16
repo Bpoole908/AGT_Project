@@ -17,6 +17,8 @@ public class Game_Controller : MonoBehaviour {
 	public GameObject restartButton;
 	private bool incTimer;
 	public Text timerText;
+	public Text milestoneText;
+	public string[] sizeMilestones;
 
 
 	void Awake(){
@@ -114,5 +116,13 @@ public class Game_Controller : MonoBehaviour {
 		string s = "Time: " + Time.timeSinceLevelLoad;
 		s = s.Split ('.') [0];
 		timerText.text =s;
+	}
+
+	public void UpdateMilestoneUI(int step){
+		milestoneText.text = sizeMilestones [step];
+	}
+
+	public void Win(){
+		print ("Game win");
 	}
 }
