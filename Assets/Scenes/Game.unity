@@ -7292,6 +7292,11 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
+--- !u!1 &305787934 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1096768145349500, guid: 690d41fc792020545a9961183fc2288f,
+    type: 2}
+  m_PrefabInternal: {fileID: 1625372398}
 --- !u!1 &378655741
 GameObject:
   m_ObjectHideFlags: 0
@@ -10893,7 +10898,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &450741874
 Transform:
   m_ObjectHideFlags: 0
@@ -12400,7 +12405,7 @@ MonoBehaviour:
   background: {fileID: 575603387}
   spawnRate: 2
   startDelay: 0
-  enemyPrefab: {fileID: 1592729924375498, guid: b3b5661550e212241a74b7191690f3fc,
+  enemyPrefab: {fileID: 1987331464174344, guid: b7c2238dde570a84b809d26dead35e82,
     type: 2}
   bounds:
   - {fileID: 410231954}
@@ -12408,6 +12413,7 @@ MonoBehaviour:
   - {fileID: 45156021}
   - {fileID: 1953587196}
   player: {fileID: 742412003}
+  trailPrefab: {fileID: 305787934}
 --- !u!1 &1298750710
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,7 +12,9 @@ public class Spawner_Script : MonoBehaviour {
 	public GameObject enemyPrefab;
 	public GameObject[] bounds;
 	GameObject enemyClone;
+	GameObject trailClone;
 	public GameObject player;
+	private GameObject trail;
 
 	void Start () {
 		
@@ -44,6 +46,12 @@ public class Spawner_Script : MonoBehaviour {
 				scale = Random.Range (0.5f, 6.0f);
 			}
 			enemyClone.transform.localScale = new Vector3 (scale, scale, scale);
+			trail = enemyClone.gameObject.transform.GetChild (0).gameObject;
+			ParticleSystem.ShapeModule trailShape = trail.GetComponent<ParticleSystem>().shape; 
+
+			trailShape.radius = (enemyClone.gameObject.transform.localScale.x + 1)/10f;
+			if (trailShape.radius > 0.68f)
+				trailShape.radius = 0.68f;
 			enemyList.Add (enemyClone);
 		}
 
