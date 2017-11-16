@@ -30,6 +30,7 @@ public class Player_Controller : MonoBehaviour
 	public Color energyBarBoostColor = new Color(1f, 0f, 0f);
 	private const float FRAME_RATE = 60f;
 	[HideInInspector]public bool isScaling;
+	public ParticleSystem deathParticlePrefab;
 
 
 	// Use this for initialization
@@ -63,6 +64,13 @@ public class Player_Controller : MonoBehaviour
 
 		if (energy < 1) {
 			this.gameObject.SetActive (false);
+
+			//Color c = GetComponent<Renderer> ().material.color;
+			//GetComponent<Renderer> ().material.color = new Color (c.r, c.b, c.g, c.a - (2.5f - Time.deltaTime));
+
+
+			ParticleSystem deathParticles = Instantiate (deathParticlePrefab, new Vector3(transform.position.x,transform.position.y,transform.position.z), Quaternion.identity) as ParticleSystem;
+			//ParticleSystem.MainModule deathMain
 			Game_Controller.instance.GameOver ();
 		}
 		
@@ -136,7 +144,6 @@ public class Player_Controller : MonoBehaviour
 
 
 	}
-
-
+		
 
 }
