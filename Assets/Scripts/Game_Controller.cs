@@ -17,6 +17,7 @@ public class Game_Controller : MonoBehaviour {
 	public GameObject restartButton;
 
 
+
 	void Awake(){
 		//Check if instance already exists
 		if (instance == null)
@@ -34,6 +35,7 @@ public class Game_Controller : MonoBehaviour {
 		//DontDestroyOnLoad(gameObject);
 		//gameOverText.SetActive(false);
 		restartButton.SetActive(false);
+		restartButton.GetComponent<CanvasGroup>().alpha = 0;
 		gameOverText.CrossFadeAlpha(0.0f, 0.01f, false);
 
 
@@ -53,6 +55,7 @@ public class Game_Controller : MonoBehaviour {
 		print("Game Over");
 		//gameOverText.SetActive(true);
 		restartButton.SetActive(true);
+		//restartButton.GetComponent<CanvasGroup>().alpha = 1;
 		StartCoroutine (WaitAndFadeText(1,gameOverText));
 
 
@@ -83,11 +86,28 @@ public class Game_Controller : MonoBehaviour {
 	/// <param name="t">Text to fade in</param>
 	IEnumerator WaitAndFadeText(int s, Text t)
 	{
-		print("T1: " + Time.time);
+		
 		yield return new WaitForSeconds(s);
 		FadeTextIn (t);
-		print("T2: " + Time.time);
+		StartCoroutine(WaitAndFadeButton (2,restartButton));
+
+	}
+	IEnumerator WaitAndFadeButton(int s, GameObject t)
+	{
+		
+		yield return new WaitForSeconds(s);
+
+		StartCoroutine (FadeButtonIn ());
 	}
 
+	IEnumerator FadeButtonIn()
+	{
+		float time = 1f;
+		while(restartButton.GetComponent<CanvasGroup>().alpha < 1)
+		{
+			restartButton.GetComponent<CanvasGroup>().alpha += Time.deltaTime / time;
+			yield return null;
+		}
+	}
 
 }
