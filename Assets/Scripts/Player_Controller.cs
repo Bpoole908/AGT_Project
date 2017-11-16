@@ -61,8 +61,10 @@ public class Player_Controller : MonoBehaviour
 	void FixedUpdate ()
 	{
 
-		if (energy < 1)
+		if (energy < 1) {
+			this.gameObject.SetActive (false);
 			Game_Controller.instance.GameOver ();
+		}
 		
 		float moveHor = Input.GetAxis ("Horizontal");
 		float moveVer = Input.GetAxis ("Vertical");
