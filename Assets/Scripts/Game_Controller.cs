@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 public class Game_Controller : MonoBehaviour {
@@ -12,6 +13,8 @@ public class Game_Controller : MonoBehaviour {
 	public GameObject plane;
 	public Slider energyBar;
 	public GameObject energyBarFill;
+	public Text gameOverText;
+	public GameObject restartButton;
 
 
 	void Awake(){
@@ -27,8 +30,12 @@ public class Game_Controller : MonoBehaviour {
 			//Then destroy this. This enforces our singleton pattern, meaning there can only ever be one instance of a GameManager.
 			Destroy(gameObject);    
 
-		//Sets this to not be destroyed when reloading scene
-		DontDestroyOnLoad(gameObject);
+		//Sets this to not be destroyed when reloading scene. Commented out because of errors when restarting game
+		//DontDestroyOnLoad(gameObject);
+		//gameOverText.SetActive(false);
+		restartButton.SetActive(false);
+		restartButton.GetComponent<CanvasGroup>().alpha = 0;
+		gameOverText.CrossFadeAlpha(0.0f, 0.01f, false);
 
 	}
 
@@ -44,6 +51,10 @@ public class Game_Controller : MonoBehaviour {
 
 		//code for what follows a game over
 		print("Game Over");
+		//gameOverText.SetActive(true);
+		restartButton.SetActive(true);
+		//restartButton.GetComponent<CanvasGroup>().alpha = 1;
+		StartCoroutine (WaitAndFadeText(1,gameOverText));
 	}
 	public void UpdateEnergyUI(float e){
 		energyBar.value = e;
@@ -52,5 +63,44 @@ public class Game_Controller : MonoBehaviour {
 	public void ChangeEnergyBarColor(Color c){
 		energyBarFill.GetComponent<Image> ().color = c;
 	}
+	public void Restart(){
 
+		SceneManager.LoadScene ("Game");
+	}
+	public void FadeTextIn(Text t){
+		t.CrossFadeAlpha(1.0f, 3.0f, false);
+	}
+
+
+	/// <summary>
+	/// Wait for s seconds and then fade in text t.
+	/// </summary>
+	/// <returns>The and fade text.</returns>
+	/// <param name="s">Seconds to wait</param>
+	/// <param name="t">Text to fade in</param>
+	IEnumerator WaitAndFadeText(int s, Text t)
+	{
+
+		yield return new WaitForSeconds(s);
+		FadeTextIn (t);
+		StartCoroutine(WaitAndFadeButton (2,restartButton));
+
+	}
+	IEnumerator WaitAndFadeButton(int s, GameObject t)
+	{
+
+		yield return new WaitForSeconds(s);
+
+		StartCoroutine (FadeButtonIn ());
+	}
+
+	IEnumerator FadeButtonIn()
+	{
+		float time = 1f;
+		while(restartButton.GetComponent<CanvasGroup>().alpha < 1)
+		{
+			restartButton.GetComponent<CanvasGroup>().alpha += Time.deltaTime / time;
+			yield return null;
+		}
+	}
 }

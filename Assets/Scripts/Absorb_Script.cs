@@ -103,7 +103,7 @@ public class Absorb_Script : MonoBehaviour
 
 
 			} else {
-				//what should we do if they're the same size?
+				Game_Controller.instance.GameOver ();
 			}
 		}
 	}
