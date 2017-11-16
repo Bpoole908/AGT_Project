@@ -15,7 +15,8 @@ public class Game_Controller : MonoBehaviour {
 	public GameObject energyBarFill;
 	public Text gameOverText;
 	public GameObject restartButton;
-	//private bool 
+	private bool incTimer;
+	public Text timerText;
 
 
 	void Awake(){
@@ -35,6 +36,7 @@ public class Game_Controller : MonoBehaviour {
 		//DontDestroyOnLoad(gameObject);
 		//gameOverText.SetActive(false);
 		restartButton.SetActive(false);
+		incTimer = true;
 		restartButton.GetComponent<CanvasGroup>().alpha = 0;
 		gameOverText.CrossFadeAlpha(0.0f, 0.01f, false);
 
@@ -46,12 +48,15 @@ public class Game_Controller : MonoBehaviour {
 
 	void Update () {
 		planeSize = plane.transform.localScale;
+		if(incTimer)
+			UpdateTimer ();
 	}
 
 	public void GameOver(){
 
 		//code for what follows a game over
 		print("Game Over");
+		incTimer = false;
 		//gameOverText.SetActive(true);
 		restartButton.SetActive(true);
 		//restartButton.GetComponent<CanvasGroup>().alpha = 1;
@@ -103,5 +108,11 @@ public class Game_Controller : MonoBehaviour {
 			restartButton.GetComponent<CanvasGroup>().alpha += Time.deltaTime / time;
 			yield return null;
 		}
+	}
+
+	void UpdateTimer(){
+		string s = "Time: " + Time.timeSinceLevelLoad;
+		s = s.Split ('.') [0];
+		timerText.text =s;
 	}
 }
