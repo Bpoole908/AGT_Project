@@ -37,10 +37,10 @@ public class Spawner_Script : MonoBehaviour {
 			enemyClone = Instantiate (enemyPrefab, getRandomV3 (), Quaternion.identity) as GameObject;
 			if (GetIsSmallerEnemyInList () == false) {
 				scale = player.transform.localScale.x * .75f;
-				Debug.Log (scale);
+				//Debug.Log (scale);
 			} else if (GetIsLargerEnemyInList () == false) {
 				scale = player.transform.localScale.x * 1.25f;
-				Debug.Log (scale);
+				//Debug.Log (scale);
 			}
 			else{
 				scale = Random.Range (0.5f, 6.0f);

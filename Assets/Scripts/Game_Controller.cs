@@ -124,5 +124,11 @@ public class Game_Controller : MonoBehaviour {
 
 	public void Win(){
 		print ("Game win");
+		gameOverText.text = "You win!";
+		incTimer = false;
+		//gameOverText.SetActive(true);
+		restartButton.SetActive(true);
+		//restartButton.GetComponent<CanvasGroup>().alpha = 1;
+		StartCoroutine (WaitAndFadeText(1,gameOverText));
 	}
 }
