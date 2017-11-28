@@ -21,7 +21,7 @@ public class Camera_Controller : MonoBehaviour {
 	void Update () {
 
 		thisCamera.orthographicSize = startingCameraSize + player.transform.localScale.x;
-		transform.position = player.transform.position + offset;
+		transform.position = new Vector3 (player.transform.position.x + offset.x, player.transform.position.y + offset.y, player.transform.position.z + offset.z - (player.transform.localScale.x + 1));
 		thisCamera.nearClipPlane = -14 - player.transform.localScale.x;
 		thisCamera.farClipPlane = 14 + player.transform.localScale.x;
 
