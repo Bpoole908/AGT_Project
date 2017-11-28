@@ -49,7 +49,7 @@ public class Spawner_Script : MonoBehaviour {
 			trail = enemyClone.gameObject.transform.GetChild (0).gameObject;
 			ParticleSystem.ShapeModule trailShape = trail.GetComponent<ParticleSystem>().shape; 
 
-			trailShape.radius = (enemyClone.gameObject.transform.localScale.x + 1)/10f;
+			trailShape.radius = (enemyClone.gameObject.transform.localScale.x + 1)/27f;
 			if (trailShape.radius > 0.68f)
 				trailShape.radius = 0.68f;
 			enemyList.Add (enemyClone);

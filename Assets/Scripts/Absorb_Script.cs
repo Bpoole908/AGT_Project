@@ -70,7 +70,7 @@ public class Absorb_Script : MonoBehaviour
 			if (this.gameObject.tag == "Player") {
 				this.gameObject.GetComponent<Player_Controller> ().isScaling = false;
 				ParticleSystem.ShapeModule trailShape = trail.shape; 
-				trailShape.radius = (this.gameObject.transform.localScale.x + 1)/10f;
+				trailShape.radius = (this.gameObject.transform.localScale.x + 1)/27f;
 				if (trailShape.radius > 0.68f)
 					trailShape.radius = 0.68f;
 
