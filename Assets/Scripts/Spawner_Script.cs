@@ -33,7 +33,7 @@ public class Spawner_Script : MonoBehaviour {
 	}
 	void spawnEnemy(){
 		float scale;
-		if (enemyList.Count < maxEnemies) {
+		if (enemyList.Count < maxEnemies && !Game_Controller.instance.mainMenuActive) {
 			enemyClone = Instantiate (enemyPrefab, getRandomV3 (), Quaternion.identity) as GameObject;
 			if (GetIsSmallerEnemyInList () == false) {
 				scale = player.transform.localScale.x * .75f;

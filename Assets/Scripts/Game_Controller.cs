@@ -19,6 +19,7 @@ public class Game_Controller : MonoBehaviour {
 	public Text timerText;
 	public Text milestoneText;
 	public string[] sizeMilestones;
+	[HideInInspector]public bool mainMenuActive;
 
 
 	void Awake(){
@@ -46,6 +47,8 @@ public class Game_Controller : MonoBehaviour {
 
 	void Start () {
 		planeSize = plane.transform.localScale;
+		mainMenuActive = true;
+
 	}
 
 	void Update () {
@@ -56,6 +59,10 @@ public class Game_Controller : MonoBehaviour {
 		if (Input.GetKey (KeyCode.Escape))
 			Restart ();
 
+	}
+
+	public void StartGame(){
+		mainMenuActive = false;
 	}
 
 	public void GameOver(){

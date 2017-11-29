@@ -106,7 +106,8 @@ public class Player_Controller : MonoBehaviour
 			speed = maxSpeed;
 		else if (speed < minSpeed)
 			speed = minSpeed;
-		updateEnergy (energyLostPerSec / FRAME_RATE); //Read this as energyLost per second, system is set to 60fps, do not alter the FRAME_RATE value. Adjust energyLostPerSec in the inspector.
+		if (!Game_Controller.instance.mainMenuActive)
+			updateEnergy (energyLostPerSec / FRAME_RATE); //Read this as energyLost per second, system is set to 60fps, do not alter the FRAME_RATE value. Adjust energyLostPerSec in the inspector.
 
 
 		if(boosting){
@@ -116,8 +117,8 @@ public class Player_Controller : MonoBehaviour
 		}
 
 		//print (tr.position.x);
-
-		tr.Translate (movement * speed / 400); 
+		if (!Game_Controller.instance.mainMenuActive)
+			tr.Translate (movement * speed / 400); 
 		float boundsFactor = Game_Controller.instance.planeSize.x*10/2f*0.7f;
 		if (tr.position.x < -1*boundsFactor || tr.position.x > boundsFactor || tr.position.y < -1*boundsFactor || tr.position.y > boundsFactor)
 			tr.Translate(-1*movement * speed / 400);
@@ -135,27 +136,28 @@ public class Player_Controller : MonoBehaviour
 
 	void Update ()
 	{
+		if (!Game_Controller.instance.mainMenuActive) {
+			if (Input.GetKeyDown (KeyCode.Space)) {
 
-		if (Input.GetKeyDown (KeyCode.Space)) {
-
-			//print("boosting");
-			boosting = true;
-			ParticleSystem.MainModule trailMain = trail.main;
-			trailMain.startColor = boostColor;
-			ParticleSystem.EmissionModule emission = trail.emission;
-			emission.rateOverTime = 500;
+				//print("boosting");
+				boosting = true;
+				ParticleSystem.MainModule trailMain = trail.main;
+				trailMain.startColor = boostColor;
+				ParticleSystem.EmissionModule emission = trail.emission;
+				emission.rateOverTime = 500;
 
 
-		}
+			}
 
-		if (Input.GetKeyUp (KeyCode.Space)) {
+			if (Input.GetKeyUp (KeyCode.Space)) {
 
-			//print("stop boosting");
-			boosting = false;
-			ParticleSystem.MainModule trailMain = trail.main;
-			trailMain.startColor = defaultColor;
-			ParticleSystem.EmissionModule emission = trail.emission;
-			emission.rateOverTime = 50;
+				//print("stop boosting");
+				boosting = false;
+				ParticleSystem.MainModule trailMain = trail.main;
+				trailMain.startColor = defaultColor;
+				ParticleSystem.EmissionModule emission = trail.emission;
+				emission.rateOverTime = 50;
+			}
 		}
 			
 
