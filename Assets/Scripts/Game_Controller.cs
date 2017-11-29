@@ -15,13 +15,14 @@ public class Game_Controller : MonoBehaviour {
 	public GameObject energyBarFill;
 	public Text gameOverText;
 	public GameObject restartButton;
-	private bool incTimer;
+	[HideInInspector]public bool incTimer;
 	public Text timerText;
 	public Text milestoneText;
 	public Text highScoresText;
 	public string[] sizeMilestones;
 	[HideInInspector]public bool mainMenuActive;
 	private float menuTimeOffset;
+	public Text titleText;
 
 
 
@@ -45,6 +46,7 @@ public class Game_Controller : MonoBehaviour {
 		incTimer = true;
 		restartButton.GetComponent<CanvasGroup>().alpha = 0;
 		gameOverText.CrossFadeAlpha(0.0f, 0.01f, false);
+		titleText.CrossFadeAlpha(0.0f, 0.01f, false);
 
 	}
 
@@ -58,6 +60,10 @@ public class Game_Controller : MonoBehaviour {
 		PlayerPrefs.SetInt ("3rd: ", 999);	*/
 
 		UpdateHighScoreDisplay ();
+
+		StartCoroutine(WaitAndFadeTitleText (1,titleText));
+
+
 	
 
 
@@ -172,6 +178,14 @@ public class Game_Controller : MonoBehaviour {
 		yield return new WaitForSeconds(s);
 		FadeTextIn (t);
 		StartCoroutine(WaitAndFadeButton (2,restartButton));
+
+	}
+	IEnumerator WaitAndFadeTitleText(int s, Text t)
+	{
+
+		yield return new WaitForSeconds(s);
+		FadeTextIn (t);
+
 
 	}
 	IEnumerator WaitAndFadeButton(int s, GameObject t)

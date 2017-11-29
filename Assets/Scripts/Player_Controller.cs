@@ -87,17 +87,13 @@ public class Player_Controller : MonoBehaviour
 			break;
 		case 15:
 			Game_Controller.instance.UpdateMilestoneUI (3);
-			break;
-		case 20:
-			Game_Controller.instance.UpdateMilestoneUI (4);
 			Game_Controller.instance.Win ();
 			break;
 		}
 		
 		float moveHor = Input.GetAxis ("Horizontal");
 		float moveVer = Input.GetAxis ("Vertical");
-		print (moveHor);
-		print (moveVer);
+
 
 		Vector3 movement = new Vector3 (moveHor, moveVer, 0.0f);
 
@@ -110,7 +106,7 @@ public class Player_Controller : MonoBehaviour
 			speed = maxSpeed;
 		else if (speed < minSpeed)
 			speed = minSpeed;
-		if (!Game_Controller.instance.mainMenuActive)
+		if (!Game_Controller.instance.mainMenuActive && Game_Controller.instance.incTimer)
 			updateEnergy (energyLostPerSec / FRAME_RATE); //Read this as energyLost per second, system is set to 60fps, do not alter the FRAME_RATE value. Adjust energyLostPerSec in the inspector.
 
 
