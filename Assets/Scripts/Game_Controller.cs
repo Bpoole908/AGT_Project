@@ -52,6 +52,10 @@ public class Game_Controller : MonoBehaviour {
 		planeSize = plane.transform.localScale;
 		if(incTimer)
 			UpdateTimer ();
+
+		if (Input.GetKey (KeyCode.Escape))
+			Restart ();
+
 	}
 
 	public void GameOver(){
