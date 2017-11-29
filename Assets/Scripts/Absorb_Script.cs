@@ -99,7 +99,8 @@ public class Absorb_Script : MonoBehaviour
 				if (this.gameObject.tag == "Player") {
 					this.gameObject.GetComponent<Player_Controller> ().audio.Play ();
 				} else {
-					Game_Controller.instance.GameOver ();
+					if(Game_Controller.instance.incTimer)
+						Game_Controller.instance.GameOver ();
 				}
 
 

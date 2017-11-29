@@ -63,11 +63,6 @@ public class Game_Controller : MonoBehaviour {
 
 		StartCoroutine(WaitAndFadeTitleText (1,titleText));
 
-
-	
-
-
-
 		//print (PlayerPrefs.GetInt ("highscore"));
 
 
@@ -87,10 +82,11 @@ public class Game_Controller : MonoBehaviour {
 
 	public void StartGame(){
 		mainMenuActive = false;
+		titleText.CrossFadeAlpha(0.0f, 0.01f, false);
+
 	}
 	public void ExitGame(){
 		Application.Quit ();
-		print ("test");
 	}
 
 	public void GameOver(){
@@ -163,6 +159,9 @@ public class Game_Controller : MonoBehaviour {
 	}
 	public void FadeTextIn(Text t){
 		t.CrossFadeAlpha(1.0f, 3.0f, false);
+	}
+	public void FadeTextOut(Text t){
+		t.CrossFadeAlpha(3.0f, 1.0f, false);
 	}
 
 
