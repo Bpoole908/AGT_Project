@@ -52,7 +52,13 @@ public class Game_Controller : MonoBehaviour {
 		planeSize = plane.transform.localScale;
 		mainMenuActive = true;
 		menuTimeOffset = 0f;
+		/*
+		PlayerPrefs.SetInt ("1st: ", 999);	
+		PlayerPrefs.SetInt ("2nd: ", 999);	
+		PlayerPrefs.SetInt ("3rd: ", 999);	*/
+
 		UpdateHighScoreDisplay ();
+	
 
 
 
@@ -86,7 +92,7 @@ public class Game_Controller : MonoBehaviour {
 		//code for what follows a game over
 		print("Game Over");
 		incTimer = false;
-		UpdateHighScores ();
+
 
 
 		//gameOverText.SetActive(true);
@@ -97,8 +103,9 @@ public class Game_Controller : MonoBehaviour {
 	public void UpdateHighScores(){
 
 		string label = "";
+		bool scoreSet = false;
 
-		for (int i = 1; i <= 3; i++) {
+		for (int i = 1; i <= 3 && !scoreSet; i++) {
 
 			if (i == 1)
 				label = "st";
@@ -108,8 +115,11 @@ public class Game_Controller : MonoBehaviour {
 				label = "rd";
 				
 
-			if((int)(Time.timeSinceLevelLoad - menuTimeOffset) > PlayerPrefs.GetInt (i + label + ": "))
-				PlayerPrefs.SetInt (i + label + ": ", (int)(Time.timeSinceLevelLoad - menuTimeOffset));			
+			if ((int)(Time.timeSinceLevelLoad - menuTimeOffset) < PlayerPrefs.GetInt (i + label + ": ")) {
+				PlayerPrefs.SetInt (i + label + ": ", (int)(Time.timeSinceLevelLoad - menuTimeOffset));	
+				scoreSet = true;
+
+			}
 		}
 			
 
@@ -127,7 +137,7 @@ public class Game_Controller : MonoBehaviour {
 
 
 			if (PlayerPrefs.GetInt (i + label + ": ") == null)
-				PlayerPrefs.SetInt (i + label + ": ", 0);
+				PlayerPrefs.SetInt (i + label + ": ", 999);
 				
 			highScoresText.text += i + label + ": " + PlayerPrefs.GetInt (i + label + ": ") + "\n\n";	
 
@@ -196,6 +206,7 @@ public class Game_Controller : MonoBehaviour {
 		print ("Game win");
 		gameOverText.text = "You win!";
 		incTimer = false;
+		UpdateHighScores ();
 		//gameOverText.SetActive(true);
 		restartButton.SetActive(true);
 		//restartButton.GetComponent<CanvasGroup>().alpha = 1;

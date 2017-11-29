@@ -65,6 +65,8 @@ public class Player_Controller : MonoBehaviour
 		if (energy < 1) {
 			this.gameObject.SetActive (false);
 
+			//this.transform.localRotation = Quaternion.Euler (0,0,0);
+
 			//Color c = GetComponent<Renderer> ().material.color;
 			//GetComponent<Renderer> ().material.color = new Color (c.r, c.b, c.g, c.a - (2.5f - Time.deltaTime));
 
@@ -94,6 +96,8 @@ public class Player_Controller : MonoBehaviour
 		
 		float moveHor = Input.GetAxis ("Horizontal");
 		float moveVer = Input.GetAxis ("Vertical");
+		print (moveHor);
+		print (moveVer);
 
 		Vector3 movement = new Vector3 (moveHor, moveVer, 0.0f);
 
