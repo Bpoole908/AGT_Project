@@ -20,6 +20,7 @@ public class Game_Controller : MonoBehaviour {
 	public Text milestoneText;
 	public string[] sizeMilestones;
 	[HideInInspector]public bool mainMenuActive;
+	private float menuTimeOffset;
 
 
 	void Awake(){
@@ -48,12 +49,16 @@ public class Game_Controller : MonoBehaviour {
 	void Start () {
 		planeSize = plane.transform.localScale;
 		mainMenuActive = true;
+		menuTimeOffset = 0f;
+
 
 	}
 
 	void Update () {
 		planeSize = plane.transform.localScale;
-		if(incTimer)
+		if(mainMenuActive)
+			menuTimeOffset = Time.timeSinceLevelLoad;
+		if(incTimer && !mainMenuActive)
 			UpdateTimer ();
 
 		if (Input.GetKey (KeyCode.Escape))
@@ -124,7 +129,7 @@ public class Game_Controller : MonoBehaviour {
 	}
 
 	void UpdateTimer(){
-		string s = "Time: " + Time.timeSinceLevelLoad;
+		string s = "Time: " + (Time.timeSinceLevelLoad - menuTimeOffset);
 		s = s.Split ('.') [0];
 		timerText.text =s;
 	}
