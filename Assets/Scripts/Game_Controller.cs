@@ -18,9 +18,11 @@ public class Game_Controller : MonoBehaviour {
 	private bool incTimer;
 	public Text timerText;
 	public Text milestoneText;
+	public Text highScoresText;
 	public string[] sizeMilestones;
 	[HideInInspector]public bool mainMenuActive;
 	private float menuTimeOffset;
+
 
 
 	void Awake(){
@@ -50,6 +52,11 @@ public class Game_Controller : MonoBehaviour {
 		planeSize = plane.transform.localScale;
 		mainMenuActive = true;
 		menuTimeOffset = 0f;
+		UpdateHighScoreDisplay ();
+
+
+
+		//print (PlayerPrefs.GetInt ("highscore"));
 
 
 	}
@@ -79,10 +86,53 @@ public class Game_Controller : MonoBehaviour {
 		//code for what follows a game over
 		print("Game Over");
 		incTimer = false;
+		UpdateHighScores ();
+
+
 		//gameOverText.SetActive(true);
 		restartButton.SetActive(true);
 		//restartButton.GetComponent<CanvasGroup>().alpha = 1;
 		StartCoroutine (WaitAndFadeText(1,gameOverText));
+	}
+	public void UpdateHighScores(){
+
+		string label = "";
+
+		for (int i = 1; i <= 3; i++) {
+
+			if (i == 1)
+				label = "st";
+			else if (i == 2)
+				label = "nd";
+			else if(i == 3)
+				label = "rd";
+				
+
+			if((int)(Time.timeSinceLevelLoad - menuTimeOffset) > PlayerPrefs.GetInt (i + label + ": "))
+				PlayerPrefs.SetInt (i + label + ": ", (int)(Time.timeSinceLevelLoad - menuTimeOffset));			
+		}
+			
+
+	}
+	public void UpdateHighScoreDisplay(){
+		string label = "";
+		for (int i = 1; i <= 3; i++) {
+
+			if (i == 1)
+				label = "st";
+			else if (i == 2)
+				label = "nd";
+			else if(i == 3)
+				label = "rd";
+
+
+			if (PlayerPrefs.GetInt (i + label + ": ") == null)
+				PlayerPrefs.SetInt (i + label + ": ", 0);
+				
+			highScoresText.text += i + label + ": " + PlayerPrefs.GetInt (i + label + ": ") + "\n\n";	
+
+		}
+		
 	}
 	public void UpdateEnergyUI(float e){
 		energyBar.value = e;
