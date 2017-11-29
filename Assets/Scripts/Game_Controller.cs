@@ -69,6 +69,10 @@ public class Game_Controller : MonoBehaviour {
 	public void StartGame(){
 		mainMenuActive = false;
 	}
+	public void ExitGame(){
+		Application.Quit ();
+		print ("test");
+	}
 
 	public void GameOver(){
 
