@@ -79,14 +79,17 @@ public class Player_Controller : MonoBehaviour
 		case 1:
 			Game_Controller.instance.UpdateMilestoneUI (0);
 			break;
-		case 5:
+		case 4:
 			Game_Controller.instance.UpdateMilestoneUI (1);
 			break;
-		case 10:
+		case 8:
 			Game_Controller.instance.UpdateMilestoneUI (2);
 			break;
-		case 15:
+		case 12:
 			Game_Controller.instance.UpdateMilestoneUI (3);
+			break;
+		case 16:
+			Game_Controller.instance.UpdateMilestoneUI (4);
 			Game_Controller.instance.Win ();
 			break;
 		}

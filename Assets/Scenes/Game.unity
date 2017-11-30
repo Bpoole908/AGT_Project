@@ -7779,7 +7779,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: -159.4}
-  m_SizeDelta: {x: 688.77, y: 192}
+  m_SizeDelta: {x: 895, y: 142.1}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &283776087
 MonoBehaviour:
@@ -7793,7 +7793,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.91372555, b: 0.098039225, a: 1}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -7801,9 +7801,9 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 70f888f2405ca7e41ab8fc808b5d84b1, type: 3}
     m_FontSize: 142
-    m_FontStyle: 3
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 10
     m_MaxSize: 160
@@ -12305,10 +12305,11 @@ MonoBehaviour:
   milestoneText: {fileID: 2000230191}
   highScoresText: {fileID: 1827662722}
   sizeMilestones:
+  - Neutron Star
   - Dwarf Star
-  - Planet
-  - Solar System
-  - Galaxy
+  - Subgiant
+  - Giant
+  - Supergiant
   mainMenuActive: 0
   titleText: {fileID: 283776087}
 --- !u!4 &767367823
@@ -12963,7 +12964,7 @@ MonoBehaviour:
   enemyList: []
   maxEnemies: 20
   background: {fileID: 575603387}
-  spawnRate: 2
+  spawnRate: 1
   startDelay: 0
   enemyPrefab: {fileID: 1987331464174344, guid: b7c2238dde570a84b809d26dead35e82,
     type: 2}
