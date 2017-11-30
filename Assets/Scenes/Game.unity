@@ -12165,7 +12165,7 @@ MonoBehaviour:
   energy: 0
   boostEnergyMultiplier: 2
   maxEnergy: 100
-  energyLostPerSec: 4
+  energyLostPerSec: 4.5
   trail: {fileID: 569853708}
   defaultColor: {r: 1, g: 1, b: 0.66, a: 1}
   boostColor: {r: 1, g: 0.5, b: 0, a: 1}
