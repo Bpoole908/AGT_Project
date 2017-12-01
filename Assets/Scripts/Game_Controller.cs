@@ -54,7 +54,9 @@ public class Game_Controller : MonoBehaviour {
 		planeSize = plane.transform.localScale;
 		mainMenuActive = true;
 		menuTimeOffset = 0f;
+		//PlayerPrefs.SetInt ("highscore", 999);
 		/*
+		 * 
 		PlayerPrefs.SetInt ("1st: ", 999);	
 		PlayerPrefs.SetInt ("2nd: ", 999);	
 		PlayerPrefs.SetInt ("3rd: ", 999);	*/
@@ -104,6 +106,12 @@ public class Game_Controller : MonoBehaviour {
 	}
 	public void UpdateHighScores(){
 
+		if ((int)(Time.timeSinceLevelLoad - menuTimeOffset) < PlayerPrefs.GetInt ("highscore")) 
+			PlayerPrefs.SetInt ("highscore", (int)(Time.timeSinceLevelLoad - menuTimeOffset));
+
+
+
+		/*
 		string label = "";
 		bool scoreSet = false;
 
@@ -122,12 +130,20 @@ public class Game_Controller : MonoBehaviour {
 				scoreSet = true;
 
 			}
-		}
+		}*/
 			
 
 	}
 	public void UpdateHighScoreDisplay(){
-		string label = "";
+
+
+		if (PlayerPrefs.GetInt ("highscore") == null)
+			PlayerPrefs.SetInt ("highscore", 999);
+
+		highScoresText.text = "High Score: " + PlayerPrefs.GetInt ("highscore");
+
+
+		/*string label = "";
 		for (int i = 1; i <= 3; i++) {
 
 			if (i == 1)
@@ -143,7 +159,7 @@ public class Game_Controller : MonoBehaviour {
 				
 			highScoresText.text += i + label + ": " + PlayerPrefs.GetInt (i + label + ": ") + "\n\n";	
 
-		}
+		}*/
 		
 	}
 	public void UpdateEnergyUI(float e){
