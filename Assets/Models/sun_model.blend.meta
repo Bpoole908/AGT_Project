@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: c0425cba98ea9984bb4733fb09fdc576
-timeCreated: 1510736612
+timeCreated: 1512102706
 licenseType: Free
 ModelImporter:
   serializedVersion: 22
@@ -29,12 +29,12 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: unnamed
-    second: {fileID: 2100000, guid: 52ed00f513a121c4caf19568cde68c54, type: 2}
+    second: {fileID: 2100000, guid: c71141bd80e91f04d9f4945ebb98b75d, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
-    materialLocation: 1
+    materialLocation: 0
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -60,7 +60,7 @@ ModelImporter:
   meshes:
     lODScreenPercentages: []
     globalScale: 1
-    meshCompression: 0
+    meshCompression: 3
     addColliders: 0
     importVisibility: 1
     importBlendShapes: 1
