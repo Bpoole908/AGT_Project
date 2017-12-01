@@ -3792,6 +3792,12 @@ ParticleSystem:
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
+--- !u!114 &79350910 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114162104987836326, guid: 227db8722d9db044f9ee45c6e18dcde0,
+    type: 2}
+  m_PrefabInternal: {fileID: 249754279}
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &85749414
 GameObject:
   m_ObjectHideFlags: 0
@@ -12397,6 +12403,9 @@ MonoBehaviour:
   - Supergiant
   mainMenuActive: 0
   titleText: {fileID: 283776087}
+  newGameButton: {fileID: 1634450615}
+  returnToMenuButton: {fileID: 79350910}
+  instructionsButton: {fileID: 2090686371}
 --- !u!4 &767367823
 Transform:
   m_ObjectHideFlags: 0
@@ -14025,6 +14034,12 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 690d41fc792020545a9961183fc2288f, type: 2}
   m_IsPrefabParent: 0
+--- !u!114 &1634450615 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114499823818448236, guid: 227db8722d9db044f9ee45c6e18dcde0,
+    type: 2}
+  m_PrefabInternal: {fileID: 249754279}
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!1 &1737633343
 GameObject:
   m_ObjectHideFlags: 0
@@ -17816,6 +17831,12 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2000230189}
+--- !u!114 &2090686371 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114037136702726674, guid: 227db8722d9db044f9ee45c6e18dcde0,
+    type: 2}
+  m_PrefabInternal: {fileID: 249754279}
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
 --- !u!4 &2118218222
 Transform:
   m_ObjectHideFlags: 0

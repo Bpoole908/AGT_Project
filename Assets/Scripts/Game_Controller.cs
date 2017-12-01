@@ -23,6 +23,9 @@ public class Game_Controller : MonoBehaviour {
 	[HideInInspector]public bool mainMenuActive;
 	private float menuTimeOffset;
 	public Text titleText;
+	public Button newGameButton;
+	public Button returnToMenuButton;
+	public Button instructionsButton;
 
 
 
@@ -79,6 +82,18 @@ public class Game_Controller : MonoBehaviour {
 
 		if (Input.GetKey (KeyCode.Escape))
 			Restart ();
+		//fail safe buttons for activating menu
+		if (Input.GetKey (KeyCode.N)) { //new game
+			newGameButton.onClick.Invoke ();
+		}
+		if (Input.GetKey (KeyCode.M)) { //back to main from instructions
+			returnToMenuButton.onClick.Invoke ();
+		}
+		if (Input.GetKey (KeyCode.I)) { //instructions
+			instructionsButton.onClick.Invoke ();
+		}
+
+			
 
 	}
 
